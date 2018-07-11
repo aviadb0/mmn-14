@@ -16,7 +16,7 @@
 #define ADDR_MEMORY 1
 #define ADDRESSING_NONE none
 #define ADD_OPERATION "add"
-#define ADDR_MATRIX 2
+#define ADDR_JUMP 2
 #define ADDR_REGISTER 3
 #define ADDRESSING_ALL immediate | memory | matrix | regist
 #define BASE4_FIRST_TWO_DIGIT 4

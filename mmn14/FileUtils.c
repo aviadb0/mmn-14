@@ -11,6 +11,7 @@
 #include "IntUtils.h"
 #include "ExternLocationCalculator.h"
 #include "LogUtils.h"
+#include "OperationData.h"
 
 /*
 	check if the line exists
@@ -59,22 +60,36 @@ int isLineStartsWithEntry(char* line)
 	this method returns TRUE if the op is in memory type and label dont exist in fileContext
 */
 int isOpMemoryAndLabelDontExist(Op *op, FileContext *fileContext) {
-	return (op->dst.type == memory && !isLabelOrExternExistInFileContext(op->dst.data.label, fileContext)) ||
-		(op->dst.type == matrix && !isLabelExistInFileContext(op->dst.data.matrix_data.label, fileContext));
+	if (op->dst.type == memory && !isLabelOrExternExistInFileContext(op->dst.data.label, fileContext)) /* check if the label exist */
+        return TRUE;
+	if(op->dst.type == jump) { /* check if the label exist for jump */
+        if(!isLabelExistInFileContext(op->dst.data.jump_data.label, fileContext)) /* check first label */
+            return TRUE;
+        if(op->dst.data.jump_data.op1Type == isLabel &&
+                !isLabelExistInFileContext(op->dst.data.jump_data.op1Label, fileContext))/* check first parameter */
+            return TRUE;
+        if(op->dst.data.jump_data.op2Type == isLabel &&
+           !isLabelExistInFileContext(op->dst.data.jump_data.op2Label, fileContext))/* check first parameter */
+            return TRUE;
+    }
+    return FALSE;
 }
 
+/*
+	this method validate that all the labels in operations are declared. return TRUE if error occured
+*/
 int validateUsedLabelsDeclared(FileContext* FileContext)
 {
 	int existsError = FALSE, i;
 	for (i = 0; i < FileContext->operationData->operationsCounter; i++)
 	{
 		Op* op = &FileContext->operationData->operationsTable[i];
-		if (!op->operands) {
+		if (!op->operands) { /* no operand -no labels */
 			continue;
 		}
 		if (op->operands >= 1)
 		{
-			if (isOpMemoryAndLabelDontExist(op,FileContext)) {
+			if (isOpMemoryAndLabelDontExist(op,FileContext)) { /* check for labels and check if declared */
 				writeErrorOrWarningToLogWithNoLineNumber(2, "label '%s' used but not declared", op->dst.data.label);
 				existsError = TRUE;
 			}
@@ -83,6 +98,10 @@ int validateUsedLabelsDeclared(FileContext* FileContext)
 	return existsError;
 }
 
+
+/*
+	reurns TRUE if line start with number
+*/
 int isLineStartsWithANumber(char* line, int* num)
 {
 	*num = atoi(line);
@@ -143,8 +162,8 @@ void updateLabelLocations(FileContext* FileContext)
 	int i;
 	for (i = 0; i < FileContext->symbolData->symbolCount; i++)
 	{
-		FileContext->symbolData->symbolsTable[i].location += BASE_MEM_ADDR;
-		if (FileContext->symbolData->symbolsTable[i].type == data) {
+		FileContext->symbolData->symbolsTable[i].location += BASE_MEM_ADDR;  /* calculate the loc by adding the base memory loc*/
+		if (FileContext->symbolData->symbolsTable[i].type == data) { /* check id data - add the IC counter*/
 			FileContext->symbolData->symbolsTable[i].location += FileContext->instructionCounter;
 		}
 	}
@@ -159,9 +178,9 @@ int ret(int i, FileContext *fileContext, int j, Extern *_extern) {
 */
 int handleNoErrorWhenRunningAsmFileCase1(FileContext *fileContext) {
 	int lineError;
-	lineError = validateThatEntryExistsInFileContext(fileContext);
-	calcExternLocation(fileContext);
-	lineError = validateUsedLabelsDeclared(fileContext);
+	lineError = validateThatEntryExistsInFileContext(fileContext); /* check if all the entry exist in file */
+	calcExternLocation(fileContext); /* calc the extern location and insert locations into extern table */
+	lineError = validateUsedLabelsDeclared(fileContext); /* check if all labels are declared */
 
 	return lineError;
 }

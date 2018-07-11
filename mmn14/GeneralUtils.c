@@ -296,8 +296,8 @@ int getAddressType(Addressing addressType)
 		return ADDR_IMMEDIATE;
 	} else if (addressType == memory) {
 		return ADDR_MEMORY;
-	} else if (addressType == matrix) {
-		return ADDR_MATRIX;
+	} else if (addressType == jump) {
+		return ADDR_JUMP;
 	}
 	else if (addressType == regist) {
 		return ADDR_REGISTER;
