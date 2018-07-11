@@ -43,10 +43,10 @@ RM = /snap/clion/27/bin/cmake/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/aviad/Desktop/mmn14
+CMAKE_SOURCE_DIR = /home/aviad/mmn14
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/aviad/Desktop/mmn14/cmake-build-debug
+CMAKE_BINARY_DIR = /home/aviad/mmn14/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/mmn14.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/mmn14.dir/flags.make
 
 CMakeFiles/mmn14.dir/EntryUtils.c.o: CMakeFiles/mmn14.dir/flags.make
 CMakeFiles/mmn14.dir/EntryUtils.c.o: ../EntryUtils.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aviad/Desktop/mmn14/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/mmn14.dir/EntryUtils.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/mmn14.dir/EntryUtils.c.o   -c /home/aviad/Desktop/mmn14/EntryUtils.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aviad/mmn14/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/mmn14.dir/EntryUtils.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/mmn14.dir/EntryUtils.c.o   -c /home/aviad/mmn14/EntryUtils.c
 
 CMakeFiles/mmn14.dir/EntryUtils.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/mmn14.dir/EntryUtils.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/aviad/Desktop/mmn14/EntryUtils.c > CMakeFiles/mmn14.dir/EntryUtils.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/aviad/mmn14/EntryUtils.c > CMakeFiles/mmn14.dir/EntryUtils.c.i
 
 CMakeFiles/mmn14.dir/EntryUtils.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/mmn14.dir/EntryUtils.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/aviad/Desktop/mmn14/EntryUtils.c -o CMakeFiles/mmn14.dir/EntryUtils.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/aviad/mmn14/EntryUtils.c -o CMakeFiles/mmn14.dir/EntryUtils.c.s
 
 CMakeFiles/mmn14.dir/EntryUtils.c.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/mmn14.dir/EntryUtils.c.o.provides.build: CMakeFiles/mmn14.dir/EntryUt
 
 CMakeFiles/mmn14.dir/ExternLocationCalculator.c.o: CMakeFiles/mmn14.dir/flags.make
 CMakeFiles/mmn14.dir/ExternLocationCalculator.c.o: ../ExternLocationCalculator.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aviad/Desktop/mmn14/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/mmn14.dir/ExternLocationCalculator.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/mmn14.dir/ExternLocationCalculator.c.o   -c /home/aviad/Desktop/mmn14/ExternLocationCalculator.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aviad/mmn14/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/mmn14.dir/ExternLocationCalculator.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/mmn14.dir/ExternLocationCalculator.c.o   -c /home/aviad/mmn14/ExternLocationCalculator.c
 
 CMakeFiles/mmn14.dir/ExternLocationCalculator.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/mmn14.dir/ExternLocationCalculator.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/aviad/Desktop/mmn14/ExternLocationCalculator.c > CMakeFiles/mmn14.dir/ExternLocationCalculator.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/aviad/mmn14/ExternLocationCalculator.c > CMakeFiles/mmn14.dir/ExternLocationCalculator.c.i
 
 CMakeFiles/mmn14.dir/ExternLocationCalculator.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/mmn14.dir/ExternLocationCalculator.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/aviad/Desktop/mmn14/ExternLocationCalculator.c -o CMakeFiles/mmn14.dir/ExternLocationCalculator.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/aviad/mmn14/ExternLocationCalculator.c -o CMakeFiles/mmn14.dir/ExternLocationCalculator.c.s
 
 CMakeFiles/mmn14.dir/ExternLocationCalculator.c.o.requires:
 
@@ -107,16 +107,16 @@ CMakeFiles/mmn14.dir/ExternLocationCalculator.c.o.provides.build: CMakeFiles/mmn
 
 CMakeFiles/mmn14.dir/FileContextDefenition.c.o: CMakeFiles/mmn14.dir/flags.make
 CMakeFiles/mmn14.dir/FileContextDefenition.c.o: ../FileContextDefenition.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aviad/Desktop/mmn14/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/mmn14.dir/FileContextDefenition.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/mmn14.dir/FileContextDefenition.c.o   -c /home/aviad/Desktop/mmn14/FileContextDefenition.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aviad/mmn14/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/mmn14.dir/FileContextDefenition.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/mmn14.dir/FileContextDefenition.c.o   -c /home/aviad/mmn14/FileContextDefenition.c
 
 CMakeFiles/mmn14.dir/FileContextDefenition.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/mmn14.dir/FileContextDefenition.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/aviad/Desktop/mmn14/FileContextDefenition.c > CMakeFiles/mmn14.dir/FileContextDefenition.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/aviad/mmn14/FileContextDefenition.c > CMakeFiles/mmn14.dir/FileContextDefenition.c.i
 
 CMakeFiles/mmn14.dir/FileContextDefenition.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/mmn14.dir/FileContextDefenition.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/aviad/Desktop/mmn14/FileContextDefenition.c -o CMakeFiles/mmn14.dir/FileContextDefenition.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/aviad/mmn14/FileContextDefenition.c -o CMakeFiles/mmn14.dir/FileContextDefenition.c.s
 
 CMakeFiles/mmn14.dir/FileContextDefenition.c.o.requires:
 
@@ -131,16 +131,16 @@ CMakeFiles/mmn14.dir/FileContextDefenition.c.o.provides.build: CMakeFiles/mmn14.
 
 CMakeFiles/mmn14.dir/FileContextUtils.c.o: CMakeFiles/mmn14.dir/flags.make
 CMakeFiles/mmn14.dir/FileContextUtils.c.o: ../FileContextUtils.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aviad/Desktop/mmn14/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/mmn14.dir/FileContextUtils.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/mmn14.dir/FileContextUtils.c.o   -c /home/aviad/Desktop/mmn14/FileContextUtils.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aviad/mmn14/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/mmn14.dir/FileContextUtils.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/mmn14.dir/FileContextUtils.c.o   -c /home/aviad/mmn14/FileContextUtils.c
 
 CMakeFiles/mmn14.dir/FileContextUtils.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/mmn14.dir/FileContextUtils.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/aviad/Desktop/mmn14/FileContextUtils.c > CMakeFiles/mmn14.dir/FileContextUtils.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/aviad/mmn14/FileContextUtils.c > CMakeFiles/mmn14.dir/FileContextUtils.c.i
 
 CMakeFiles/mmn14.dir/FileContextUtils.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/mmn14.dir/FileContextUtils.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/aviad/Desktop/mmn14/FileContextUtils.c -o CMakeFiles/mmn14.dir/FileContextUtils.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/aviad/mmn14/FileContextUtils.c -o CMakeFiles/mmn14.dir/FileContextUtils.c.s
 
 CMakeFiles/mmn14.dir/FileContextUtils.c.o.requires:
 
@@ -155,16 +155,16 @@ CMakeFiles/mmn14.dir/FileContextUtils.c.o.provides.build: CMakeFiles/mmn14.dir/F
 
 CMakeFiles/mmn14.dir/FileUtils.c.o: CMakeFiles/mmn14.dir/flags.make
 CMakeFiles/mmn14.dir/FileUtils.c.o: ../FileUtils.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aviad/Desktop/mmn14/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/mmn14.dir/FileUtils.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/mmn14.dir/FileUtils.c.o   -c /home/aviad/Desktop/mmn14/FileUtils.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aviad/mmn14/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/mmn14.dir/FileUtils.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/mmn14.dir/FileUtils.c.o   -c /home/aviad/mmn14/FileUtils.c
 
 CMakeFiles/mmn14.dir/FileUtils.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/mmn14.dir/FileUtils.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/aviad/Desktop/mmn14/FileUtils.c > CMakeFiles/mmn14.dir/FileUtils.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/aviad/mmn14/FileUtils.c > CMakeFiles/mmn14.dir/FileUtils.c.i
 
 CMakeFiles/mmn14.dir/FileUtils.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/mmn14.dir/FileUtils.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/aviad/Desktop/mmn14/FileUtils.c -o CMakeFiles/mmn14.dir/FileUtils.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/aviad/mmn14/FileUtils.c -o CMakeFiles/mmn14.dir/FileUtils.c.s
 
 CMakeFiles/mmn14.dir/FileUtils.c.o.requires:
 
@@ -179,16 +179,16 @@ CMakeFiles/mmn14.dir/FileUtils.c.o.provides.build: CMakeFiles/mmn14.dir/FileUtil
 
 CMakeFiles/mmn14.dir/GeneralUtils.c.o: CMakeFiles/mmn14.dir/flags.make
 CMakeFiles/mmn14.dir/GeneralUtils.c.o: ../GeneralUtils.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aviad/Desktop/mmn14/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/mmn14.dir/GeneralUtils.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/mmn14.dir/GeneralUtils.c.o   -c /home/aviad/Desktop/mmn14/GeneralUtils.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aviad/mmn14/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/mmn14.dir/GeneralUtils.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/mmn14.dir/GeneralUtils.c.o   -c /home/aviad/mmn14/GeneralUtils.c
 
 CMakeFiles/mmn14.dir/GeneralUtils.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/mmn14.dir/GeneralUtils.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/aviad/Desktop/mmn14/GeneralUtils.c > CMakeFiles/mmn14.dir/GeneralUtils.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/aviad/mmn14/GeneralUtils.c > CMakeFiles/mmn14.dir/GeneralUtils.c.i
 
 CMakeFiles/mmn14.dir/GeneralUtils.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/mmn14.dir/GeneralUtils.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/aviad/Desktop/mmn14/GeneralUtils.c -o CMakeFiles/mmn14.dir/GeneralUtils.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/aviad/mmn14/GeneralUtils.c -o CMakeFiles/mmn14.dir/GeneralUtils.c.s
 
 CMakeFiles/mmn14.dir/GeneralUtils.c.o.requires:
 
@@ -203,16 +203,16 @@ CMakeFiles/mmn14.dir/GeneralUtils.c.o.provides.build: CMakeFiles/mmn14.dir/Gener
 
 CMakeFiles/mmn14.dir/IntUtils.c.o: CMakeFiles/mmn14.dir/flags.make
 CMakeFiles/mmn14.dir/IntUtils.c.o: ../IntUtils.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aviad/Desktop/mmn14/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/mmn14.dir/IntUtils.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/mmn14.dir/IntUtils.c.o   -c /home/aviad/Desktop/mmn14/IntUtils.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aviad/mmn14/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/mmn14.dir/IntUtils.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/mmn14.dir/IntUtils.c.o   -c /home/aviad/mmn14/IntUtils.c
 
 CMakeFiles/mmn14.dir/IntUtils.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/mmn14.dir/IntUtils.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/aviad/Desktop/mmn14/IntUtils.c > CMakeFiles/mmn14.dir/IntUtils.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/aviad/mmn14/IntUtils.c > CMakeFiles/mmn14.dir/IntUtils.c.i
 
 CMakeFiles/mmn14.dir/IntUtils.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/mmn14.dir/IntUtils.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/aviad/Desktop/mmn14/IntUtils.c -o CMakeFiles/mmn14.dir/IntUtils.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/aviad/mmn14/IntUtils.c -o CMakeFiles/mmn14.dir/IntUtils.c.s
 
 CMakeFiles/mmn14.dir/IntUtils.c.o.requires:
 
@@ -227,16 +227,16 @@ CMakeFiles/mmn14.dir/IntUtils.c.o.provides.build: CMakeFiles/mmn14.dir/IntUtils.
 
 CMakeFiles/mmn14.dir/LineUtils.c.o: CMakeFiles/mmn14.dir/flags.make
 CMakeFiles/mmn14.dir/LineUtils.c.o: ../LineUtils.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aviad/Desktop/mmn14/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/mmn14.dir/LineUtils.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/mmn14.dir/LineUtils.c.o   -c /home/aviad/Desktop/mmn14/LineUtils.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aviad/mmn14/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/mmn14.dir/LineUtils.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/mmn14.dir/LineUtils.c.o   -c /home/aviad/mmn14/LineUtils.c
 
 CMakeFiles/mmn14.dir/LineUtils.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/mmn14.dir/LineUtils.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/aviad/Desktop/mmn14/LineUtils.c > CMakeFiles/mmn14.dir/LineUtils.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/aviad/mmn14/LineUtils.c > CMakeFiles/mmn14.dir/LineUtils.c.i
 
 CMakeFiles/mmn14.dir/LineUtils.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/mmn14.dir/LineUtils.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/aviad/Desktop/mmn14/LineUtils.c -o CMakeFiles/mmn14.dir/LineUtils.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/aviad/mmn14/LineUtils.c -o CMakeFiles/mmn14.dir/LineUtils.c.s
 
 CMakeFiles/mmn14.dir/LineUtils.c.o.requires:
 
@@ -251,16 +251,16 @@ CMakeFiles/mmn14.dir/LineUtils.c.o.provides.build: CMakeFiles/mmn14.dir/LineUtil
 
 CMakeFiles/mmn14.dir/LogUtils.c.o: CMakeFiles/mmn14.dir/flags.make
 CMakeFiles/mmn14.dir/LogUtils.c.o: ../LogUtils.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aviad/Desktop/mmn14/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/mmn14.dir/LogUtils.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/mmn14.dir/LogUtils.c.o   -c /home/aviad/Desktop/mmn14/LogUtils.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aviad/mmn14/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/mmn14.dir/LogUtils.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/mmn14.dir/LogUtils.c.o   -c /home/aviad/mmn14/LogUtils.c
 
 CMakeFiles/mmn14.dir/LogUtils.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/mmn14.dir/LogUtils.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/aviad/Desktop/mmn14/LogUtils.c > CMakeFiles/mmn14.dir/LogUtils.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/aviad/mmn14/LogUtils.c > CMakeFiles/mmn14.dir/LogUtils.c.i
 
 CMakeFiles/mmn14.dir/LogUtils.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/mmn14.dir/LogUtils.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/aviad/Desktop/mmn14/LogUtils.c -o CMakeFiles/mmn14.dir/LogUtils.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/aviad/mmn14/LogUtils.c -o CMakeFiles/mmn14.dir/LogUtils.c.s
 
 CMakeFiles/mmn14.dir/LogUtils.c.o.requires:
 
@@ -275,16 +275,16 @@ CMakeFiles/mmn14.dir/LogUtils.c.o.provides.build: CMakeFiles/mmn14.dir/LogUtils.
 
 CMakeFiles/mmn14.dir/main.c.o: CMakeFiles/mmn14.dir/flags.make
 CMakeFiles/mmn14.dir/main.c.o: ../main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aviad/Desktop/mmn14/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/mmn14.dir/main.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/mmn14.dir/main.c.o   -c /home/aviad/Desktop/mmn14/main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aviad/mmn14/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/mmn14.dir/main.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/mmn14.dir/main.c.o   -c /home/aviad/mmn14/main.c
 
 CMakeFiles/mmn14.dir/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/mmn14.dir/main.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/aviad/Desktop/mmn14/main.c > CMakeFiles/mmn14.dir/main.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/aviad/mmn14/main.c > CMakeFiles/mmn14.dir/main.c.i
 
 CMakeFiles/mmn14.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/mmn14.dir/main.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/aviad/Desktop/mmn14/main.c -o CMakeFiles/mmn14.dir/main.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/aviad/mmn14/main.c -o CMakeFiles/mmn14.dir/main.c.s
 
 CMakeFiles/mmn14.dir/main.c.o.requires:
 
@@ -299,16 +299,16 @@ CMakeFiles/mmn14.dir/main.c.o.provides.build: CMakeFiles/mmn14.dir/main.c.o
 
 CMakeFiles/mmn14.dir/Parser.c.o: CMakeFiles/mmn14.dir/flags.make
 CMakeFiles/mmn14.dir/Parser.c.o: ../Parser.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aviad/Desktop/mmn14/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/mmn14.dir/Parser.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/mmn14.dir/Parser.c.o   -c /home/aviad/Desktop/mmn14/Parser.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aviad/mmn14/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/mmn14.dir/Parser.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/mmn14.dir/Parser.c.o   -c /home/aviad/mmn14/Parser.c
 
 CMakeFiles/mmn14.dir/Parser.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/mmn14.dir/Parser.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/aviad/Desktop/mmn14/Parser.c > CMakeFiles/mmn14.dir/Parser.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/aviad/mmn14/Parser.c > CMakeFiles/mmn14.dir/Parser.c.i
 
 CMakeFiles/mmn14.dir/Parser.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/mmn14.dir/Parser.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/aviad/Desktop/mmn14/Parser.c -o CMakeFiles/mmn14.dir/Parser.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/aviad/mmn14/Parser.c -o CMakeFiles/mmn14.dir/Parser.c.s
 
 CMakeFiles/mmn14.dir/Parser.c.o.requires:
 
@@ -323,16 +323,16 @@ CMakeFiles/mmn14.dir/Parser.c.o.provides.build: CMakeFiles/mmn14.dir/Parser.c.o
 
 CMakeFiles/mmn14.dir/WordsGenerator.c.o: CMakeFiles/mmn14.dir/flags.make
 CMakeFiles/mmn14.dir/WordsGenerator.c.o: ../WordsGenerator.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aviad/Desktop/mmn14/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/mmn14.dir/WordsGenerator.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/mmn14.dir/WordsGenerator.c.o   -c /home/aviad/Desktop/mmn14/WordsGenerator.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aviad/mmn14/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/mmn14.dir/WordsGenerator.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/mmn14.dir/WordsGenerator.c.o   -c /home/aviad/mmn14/WordsGenerator.c
 
 CMakeFiles/mmn14.dir/WordsGenerator.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/mmn14.dir/WordsGenerator.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/aviad/Desktop/mmn14/WordsGenerator.c > CMakeFiles/mmn14.dir/WordsGenerator.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/aviad/mmn14/WordsGenerator.c > CMakeFiles/mmn14.dir/WordsGenerator.c.i
 
 CMakeFiles/mmn14.dir/WordsGenerator.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/mmn14.dir/WordsGenerator.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/aviad/Desktop/mmn14/WordsGenerator.c -o CMakeFiles/mmn14.dir/WordsGenerator.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/aviad/mmn14/WordsGenerator.c -o CMakeFiles/mmn14.dir/WordsGenerator.c.s
 
 CMakeFiles/mmn14.dir/WordsGenerator.c.o.requires:
 
@@ -377,7 +377,7 @@ mmn14: CMakeFiles/mmn14.dir/Parser.c.o
 mmn14: CMakeFiles/mmn14.dir/WordsGenerator.c.o
 mmn14: CMakeFiles/mmn14.dir/build.make
 mmn14: CMakeFiles/mmn14.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/aviad/Desktop/mmn14/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking C executable mmn14"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/aviad/mmn14/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking C executable mmn14"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/mmn14.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -405,6 +405,6 @@ CMakeFiles/mmn14.dir/clean:
 .PHONY : CMakeFiles/mmn14.dir/clean
 
 CMakeFiles/mmn14.dir/depend:
-	cd /home/aviad/Desktop/mmn14/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/aviad/Desktop/mmn14 /home/aviad/Desktop/mmn14 /home/aviad/Desktop/mmn14/cmake-build-debug /home/aviad/Desktop/mmn14/cmake-build-debug /home/aviad/Desktop/mmn14/cmake-build-debug/CMakeFiles/mmn14.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/aviad/mmn14/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/aviad/mmn14 /home/aviad/mmn14 /home/aviad/mmn14/cmake-build-debug /home/aviad/mmn14/cmake-build-debug /home/aviad/mmn14/cmake-build-debug/CMakeFiles/mmn14.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/mmn14.dir/depend
 

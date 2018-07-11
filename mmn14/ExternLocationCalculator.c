@@ -5,6 +5,7 @@
 #include "GeneralUtils.h"
 #include "WordsGenerator.h"
 #include "LogUtils.h"
+#include "OperationData.h"
 
 /*
 	check if op source is memory type
@@ -14,7 +15,7 @@ int isOpSourceIsMemory(int sourceExists, Op *op, Extern *ext) {
 }
 
 /*
-	calculating extern location
+	calculating extern location - start from 100
 */
 void calcExternLocation(FileContext* FileContext)
 {
@@ -27,33 +28,50 @@ void calcExternLocation(FileContext* FileContext)
 		for (j = 0; j < FileContext->operationData->operationsCounter; j++)
 		{
 			int destinationLocation, sourceLocation, sourceExists;
-			Op* op = &FileContext->operationData->operationsTable[j];
+			 Op* op = &FileContext->operationData->operationsTable[j];
 
 			if (!op->operands) {
+				location++;  /* for the first word */
 				continue;
 			}
 			if (op->operands == 1)
 			{
-				sourceExists = FALSE;
-				destinationLocation = location + 1;
+				sourceExists = FALSE; /* just dest exist */
+				destinationLocation = location + 1; /* first line in memory for the first word */
+				if (op->dst.type == jump) /*check if jump - jump can be 3 labels */
+				{
+					if(strcmp(op->dst.data.jump_data.label, ext->label) == 0) {
+						addLocationToExtern(ext, destinationLocation);
+					}
+					destinationLocation++; /* the pos of the next word */
+					if(op->dst.data.jump_data.op1Type == isLabel &&
+					   strcmp(op->dst.data.jump_data.op1Label, ext->label) == 0) { /* check first parameter */
+						addLocationToExtern(ext, destinationLocation);
+					}
+					destinationLocation++; /* the pos of the next word */
+					if(op->dst.data.jump_data.op2Type == isLabel &&
+					   strcmp(op->dst.data.jump_data.op2Label, ext->label) == 0) { /* check second parameter */
+						addLocationToExtern(ext, destinationLocation);
+					}
+					location += op->binary_size;
+					continue;
+				}
 			}
 			else if (op->operands == 2)
 			{
 				sourceExists = TRUE;
 				destinationLocation = location + 2;
 				sourceLocation = location + 1;
-				if (op->src.type == matrix) {
-					destinationLocation++;
-				}
+
 			}
-			if (isOpDestIsMemory(op, ext)) {
+			if (isOpDestIsMemory(op, ext)) {  /* check if dest is a label */
 				addLocationToExtern(ext, destinationLocation);
 			}
-			if (isOpSourceIsMemory(sourceExists, op, ext)) {
+			if (isOpSourceIsMemory(sourceExists, op, ext)) { /* check if src op is a label */
 				addLocationToExtern(ext, sourceLocation);
 			}
 
-			location += op->binary_size;
+			location += op->binary_size; /* jump to the memory line for next operation */
 		}
 	}
 }

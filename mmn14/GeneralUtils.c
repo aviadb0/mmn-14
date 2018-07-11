@@ -262,16 +262,16 @@ int isLineStartsWithOp(char* line, int* operationIndex)
 }
 
 /*
-	adding the locatino to Extern
+	adding the location to Extern
 */
 void addLocationToExtern(Extern* _extern, int location)
 {
-	if (_extern->locations_count == _extern->locations_capacity)
+	if (_extern->locations_count == _extern->locations_capacity) /* no more capacity - extend the memory*/
 	{
 		_extern->locations_capacity *= 2;
 		_extern->locations = realloc(_extern->locations, _extern->locations_capacity);
 	}
-	_extern->locations[_extern->locations_count] = location;
+	_extern->locations[_extern->locations_count] = location; /* insert the location */
 	_extern->locations_count++;
 }
 

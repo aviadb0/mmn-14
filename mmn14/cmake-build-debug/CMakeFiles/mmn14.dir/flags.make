@@ -6,5 +6,5 @@ C_FLAGS = -g   -std=gnu11
 
 C_DEFINES = 
 
-C_INCLUDES = -I/home/aviad/Desktop/mmn14/. 
+C_INCLUDES = -I/home/aviad/mmn14/. 
 

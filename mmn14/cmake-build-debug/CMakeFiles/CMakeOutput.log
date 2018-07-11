@@ -10,33 +10,33 @@ The output was:
 
 Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
 
-The C compiler identification is GNU, found in "/home/aviad/Desktop/mmn14/cmake-build-debug/CMakeFiles/3.10.3/CompilerIdC/a.out"
+The C compiler identification is GNU, found in "/home/aviad/mmn14/cmake-build-debug/CMakeFiles/3.10.3/CompilerIdC/a.out"
 
 Determining if the C compiler works passed with the following output:
-Change Dir: /home/aviad/Desktop/mmn14/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /home/aviad/mmn14/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_6988f/fast"
-/usr/bin/make -f CMakeFiles/cmTC_6988f.dir/build.make CMakeFiles/cmTC_6988f.dir/build
-make[1]: Entering directory '/home/aviad/Desktop/mmn14/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_6988f.dir/testCCompiler.c.o
-/usr/bin/cc    -o CMakeFiles/cmTC_6988f.dir/testCCompiler.c.o   -c /home/aviad/Desktop/mmn14/cmake-build-debug/CMakeFiles/CMakeTmp/testCCompiler.c
-Linking C executable cmTC_6988f
-/snap/clion/27/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6988f.dir/link.txt --verbose=1
-/usr/bin/cc      CMakeFiles/cmTC_6988f.dir/testCCompiler.c.o  -o cmTC_6988f 
-make[1]: Leaving directory '/home/aviad/Desktop/mmn14/cmake-build-debug/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_fa798/fast"
+/usr/bin/make -f CMakeFiles/cmTC_fa798.dir/build.make CMakeFiles/cmTC_fa798.dir/build
+make[1]: Entering directory '/home/aviad/mmn14/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_fa798.dir/testCCompiler.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_fa798.dir/testCCompiler.c.o   -c /home/aviad/mmn14/cmake-build-debug/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_fa798
+/snap/clion/27/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fa798.dir/link.txt --verbose=1
+/usr/bin/cc      CMakeFiles/cmTC_fa798.dir/testCCompiler.c.o  -o cmTC_fa798 
+make[1]: Leaving directory '/home/aviad/mmn14/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
 Detecting C compiler ABI info compiled with the following output:
-Change Dir: /home/aviad/Desktop/mmn14/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /home/aviad/mmn14/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_750cf/fast"
-/usr/bin/make -f CMakeFiles/cmTC_750cf.dir/build.make CMakeFiles/cmTC_750cf.dir/build
-make[1]: Entering directory '/home/aviad/Desktop/mmn14/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_750cf.dir/CMakeCCompilerABI.c.o
-/usr/bin/cc    -o CMakeFiles/cmTC_750cf.dir/CMakeCCompilerABI.c.o   -c /snap/clion/27/bin/cmake/share/cmake-3.10/Modules/CMakeCCompilerABI.c
-Linking C executable cmTC_750cf
-/snap/clion/27/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_750cf.dir/link.txt --verbose=1
-/usr/bin/cc     -v CMakeFiles/cmTC_750cf.dir/CMakeCCompilerABI.c.o  -o cmTC_750cf 
+Run Build Command:"/usr/bin/make" "cmTC_bf26d/fast"
+/usr/bin/make -f CMakeFiles/cmTC_bf26d.dir/build.make CMakeFiles/cmTC_bf26d.dir/build
+make[1]: Entering directory '/home/aviad/mmn14/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_bf26d.dir/CMakeCCompilerABI.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_bf26d.dir/CMakeCCompilerABI.c.o   -c /snap/clion/27/bin/cmake/share/cmake-3.10/Modules/CMakeCCompilerABI.c
+Linking C executable cmTC_bf26d
+/snap/clion/27/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bf26d.dir/link.txt --verbose=1
+/usr/bin/cc     -v CMakeFiles/cmTC_bf26d.dir/CMakeCCompilerABI.c.o  -o cmTC_bf26d 
 Using built-in specs.
 COLLECT_GCC=/usr/bin/cc
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper
@@ -48,24 +48,24 @@ Thread model: posix
 gcc version 7.2.0 (Ubuntu 7.2.0-8ubuntu3.2) 
 COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_750cf' '-mtune=generic' '-march=x86-64'
- /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccAzdocl.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_750cf /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_750cf.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_750cf' '-mtune=generic' '-march=x86-64'
-make[1]: Leaving directory '/home/aviad/Desktop/mmn14/cmake-build-debug/CMakeFiles/CMakeTmp'
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_bf26d' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/cc3pqqEw.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_bf26d /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_bf26d.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_bf26d' '-mtune=generic' '-march=x86-64'
+make[1]: Leaving directory '/home/aviad/mmn14/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
 Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: /home/aviad/Desktop/mmn14/cmake-build-debug/CMakeFiles/CMakeTmp]
+  ignore line: [Change Dir: /home/aviad/mmn14/cmake-build-debug/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_750cf/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_750cf.dir/build.make CMakeFiles/cmTC_750cf.dir/build]
-  ignore line: [make[1]: Entering directory '/home/aviad/Desktop/mmn14/cmake-build-debug/CMakeFiles/CMakeTmp']
-  ignore line: [Building C object CMakeFiles/cmTC_750cf.dir/CMakeCCompilerABI.c.o]
-  ignore line: [/usr/bin/cc    -o CMakeFiles/cmTC_750cf.dir/CMakeCCompilerABI.c.o   -c /snap/clion/27/bin/cmake/share/cmake-3.10/Modules/CMakeCCompilerABI.c]
-  ignore line: [Linking C executable cmTC_750cf]
-  ignore line: [/snap/clion/27/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_750cf.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/cc     -v CMakeFiles/cmTC_750cf.dir/CMakeCCompilerABI.c.o  -o cmTC_750cf ]
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_bf26d/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_bf26d.dir/build.make CMakeFiles/cmTC_bf26d.dir/build]
+  ignore line: [make[1]: Entering directory '/home/aviad/mmn14/cmake-build-debug/CMakeFiles/CMakeTmp']
+  ignore line: [Building C object CMakeFiles/cmTC_bf26d.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/bin/cc    -o CMakeFiles/cmTC_bf26d.dir/CMakeCCompilerABI.c.o   -c /snap/clion/27/bin/cmake/share/cmake-3.10/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTC_bf26d]
+  ignore line: [/snap/clion/27/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bf26d.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/cc     -v CMakeFiles/cmTC_bf26d.dir/CMakeCCompilerABI.c.o  -o cmTC_bf26d ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/cc]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper]
@@ -77,13 +77,13 @@ Parsed C implicit link information from above output:
   ignore line: [gcc version 7.2.0 (Ubuntu 7.2.0-8ubuntu3.2) ]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_750cf' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccAzdocl.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_750cf /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_750cf.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_bf26d' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/cc3pqqEw.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_bf26d /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_bf26d.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o]
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/ccAzdocl.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/cc3pqqEw.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -102,7 +102,7 @@ Parsed C implicit link information from above output:
     arg [-znow] ==> ignore
     arg [-zrelro] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_750cf] ==> ignore
+    arg [cmTC_bf26d] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o] ==> ignore
@@ -114,7 +114,7 @@ Parsed C implicit link information from above output:
     arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
     arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
     arg [-L/usr/lib/gcc/x86_64-linux-gnu/7/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/7/../../..]
-    arg [CMakeFiles/cmTC_750cf.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [CMakeFiles/cmTC_bf26d.dir/CMakeCCompilerABI.c.o] ==> ignore
     arg [-lgcc] ==> lib [gcc]
     arg [--as-needed] ==> ignore
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -142,17 +142,17 @@ Parsed C implicit link information from above output:
 
 
 Detecting C [-std=c11] compiler features compiled with the following output:
-Change Dir: /home/aviad/Desktop/mmn14/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /home/aviad/mmn14/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_1b4f9/fast"
-/usr/bin/make -f CMakeFiles/cmTC_1b4f9.dir/build.make CMakeFiles/cmTC_1b4f9.dir/build
-make[1]: Entering directory '/home/aviad/Desktop/mmn14/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_1b4f9.dir/feature_tests.c.o
-/usr/bin/cc   -std=c11 -o CMakeFiles/cmTC_1b4f9.dir/feature_tests.c.o   -c /home/aviad/Desktop/mmn14/cmake-build-debug/CMakeFiles/feature_tests.c
-Linking C executable cmTC_1b4f9
-/snap/clion/27/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1b4f9.dir/link.txt --verbose=1
-/usr/bin/cc      CMakeFiles/cmTC_1b4f9.dir/feature_tests.c.o  -o cmTC_1b4f9 
-make[1]: Leaving directory '/home/aviad/Desktop/mmn14/cmake-build-debug/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_16841/fast"
+/usr/bin/make -f CMakeFiles/cmTC_16841.dir/build.make CMakeFiles/cmTC_16841.dir/build
+make[1]: Entering directory '/home/aviad/mmn14/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_16841.dir/feature_tests.c.o
+/usr/bin/cc   -std=c11 -o CMakeFiles/cmTC_16841.dir/feature_tests.c.o   -c /home/aviad/mmn14/cmake-build-debug/CMakeFiles/feature_tests.c
+Linking C executable cmTC_16841
+/snap/clion/27/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_16841.dir/link.txt --verbose=1
+/usr/bin/cc      CMakeFiles/cmTC_16841.dir/feature_tests.c.o  -o cmTC_16841 
+make[1]: Leaving directory '/home/aviad/mmn14/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -162,17 +162,17 @@ make[1]: Leaving directory '/home/aviad/Desktop/mmn14/cmake-build-debug/CMakeFil
 
 
 Detecting C [-std=c99] compiler features compiled with the following output:
-Change Dir: /home/aviad/Desktop/mmn14/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /home/aviad/mmn14/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_504d5/fast"
-/usr/bin/make -f CMakeFiles/cmTC_504d5.dir/build.make CMakeFiles/cmTC_504d5.dir/build
-make[1]: Entering directory '/home/aviad/Desktop/mmn14/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_504d5.dir/feature_tests.c.o
-/usr/bin/cc   -std=c99 -o CMakeFiles/cmTC_504d5.dir/feature_tests.c.o   -c /home/aviad/Desktop/mmn14/cmake-build-debug/CMakeFiles/feature_tests.c
-Linking C executable cmTC_504d5
-/snap/clion/27/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_504d5.dir/link.txt --verbose=1
-/usr/bin/cc      CMakeFiles/cmTC_504d5.dir/feature_tests.c.o  -o cmTC_504d5 
-make[1]: Leaving directory '/home/aviad/Desktop/mmn14/cmake-build-debug/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_ee0c4/fast"
+/usr/bin/make -f CMakeFiles/cmTC_ee0c4.dir/build.make CMakeFiles/cmTC_ee0c4.dir/build
+make[1]: Entering directory '/home/aviad/mmn14/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ee0c4.dir/feature_tests.c.o
+/usr/bin/cc   -std=c99 -o CMakeFiles/cmTC_ee0c4.dir/feature_tests.c.o   -c /home/aviad/mmn14/cmake-build-debug/CMakeFiles/feature_tests.c
+Linking C executable cmTC_ee0c4
+/snap/clion/27/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ee0c4.dir/link.txt --verbose=1
+/usr/bin/cc      CMakeFiles/cmTC_ee0c4.dir/feature_tests.c.o  -o cmTC_ee0c4 
+make[1]: Leaving directory '/home/aviad/mmn14/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -182,17 +182,17 @@ make[1]: Leaving directory '/home/aviad/Desktop/mmn14/cmake-build-debug/CMakeFil
 
 
 Detecting C [-std=c90] compiler features compiled with the following output:
-Change Dir: /home/aviad/Desktop/mmn14/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /home/aviad/mmn14/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_27b2e/fast"
-/usr/bin/make -f CMakeFiles/cmTC_27b2e.dir/build.make CMakeFiles/cmTC_27b2e.dir/build
-make[1]: Entering directory '/home/aviad/Desktop/mmn14/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_27b2e.dir/feature_tests.c.o
-/usr/bin/cc   -std=c90 -o CMakeFiles/cmTC_27b2e.dir/feature_tests.c.o   -c /home/aviad/Desktop/mmn14/cmake-build-debug/CMakeFiles/feature_tests.c
-Linking C executable cmTC_27b2e
-/snap/clion/27/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_27b2e.dir/link.txt --verbose=1
-/usr/bin/cc      CMakeFiles/cmTC_27b2e.dir/feature_tests.c.o  -o cmTC_27b2e 
-make[1]: Leaving directory '/home/aviad/Desktop/mmn14/cmake-build-debug/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_2be59/fast"
+/usr/bin/make -f CMakeFiles/cmTC_2be59.dir/build.make CMakeFiles/cmTC_2be59.dir/build
+make[1]: Entering directory '/home/aviad/mmn14/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_2be59.dir/feature_tests.c.o
+/usr/bin/cc   -std=c90 -o CMakeFiles/cmTC_2be59.dir/feature_tests.c.o   -c /home/aviad/mmn14/cmake-build-debug/CMakeFiles/feature_tests.c
+Linking C executable cmTC_2be59
+/snap/clion/27/bin/cmake/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2be59.dir/link.txt --verbose=1
+/usr/bin/cc      CMakeFiles/cmTC_2be59.dir/feature_tests.c.o  -o cmTC_2be59 
+make[1]: Leaving directory '/home/aviad/mmn14/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
     Feature record: C_FEATURE:1c_function_prototypes

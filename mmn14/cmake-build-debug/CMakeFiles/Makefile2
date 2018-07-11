@@ -54,10 +54,10 @@ RM = /snap/clion/27/bin/cmake/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/aviad/Desktop/mmn14
+CMAKE_SOURCE_DIR = /home/aviad/mmn14
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/aviad/Desktop/mmn14/cmake-build-debug
+CMAKE_BINARY_DIR = /home/aviad/mmn14/cmake-build-debug
 
 #=============================================================================
 # Target rules for target CMakeFiles/mmn14.dir
@@ -66,7 +66,7 @@ CMAKE_BINARY_DIR = /home/aviad/Desktop/mmn14/cmake-build-debug
 CMakeFiles/mmn14.dir/all:
 	$(MAKE) -f CMakeFiles/mmn14.dir/build.make CMakeFiles/mmn14.dir/depend
 	$(MAKE) -f CMakeFiles/mmn14.dir/build.make CMakeFiles/mmn14.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/aviad/Desktop/mmn14/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13 "Built target mmn14"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/aviad/mmn14/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13 "Built target mmn14"
 .PHONY : CMakeFiles/mmn14.dir/all
 
 # Include target in all.
@@ -76,9 +76,9 @@ all: CMakeFiles/mmn14.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/mmn14.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/aviad/Desktop/mmn14/cmake-build-debug/CMakeFiles 13
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/aviad/mmn14/cmake-build-debug/CMakeFiles 13
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/mmn14.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/aviad/Desktop/mmn14/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/aviad/mmn14/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/mmn14.dir/rule
 
 # Convenience name for target.

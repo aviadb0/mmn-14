@@ -439,7 +439,7 @@ int createOperationerand(Line line, Operand* operand)
 	}
 	else if (type == jump)
 	{
-		int num, int isLabelFlag;
+		int num, isLabelFlag;
 		char tmp[MAXIMUM_OPERATION_LENGTH + 1];
 		char label[MAXIMUM_LABEL_LENGTH + 1];
 		char* temp_line = tmp;
