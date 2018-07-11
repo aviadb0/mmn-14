@@ -1,0 +1,19 @@
+selogic@selogic-ThinkCentre-E73:~/Desktop/mmn14$ make
+make: 'assembler' is up to date.
+selogic@selogic-ThinkCentre-E73:~/Desktop/mmn14$ ./assembler Invalid1 Invalid2 Invalid3
+Start parsing files..
+Path: Invalid1
+line #1 error: string not terminated with "
+line #3 error: error in addressing immediate for destination operand in op 'add'
+line #4 error: label can't be an op name
+line #6 error: label not start correctly. Label must start with a letter
+Path: Invalid2
+line #5 error: error in number of operands for the operation 'bne', was 2 but should be 1
+line #7 error: error in addressing immediate for destination operand in op 'mov'
+Path: Invalid3
+line #1 error: invalid command
+line #3 error: invalid matrix addressing syntax
+line #4 error: invalid addressing type
+line #6 error: invalid number in matrix
+selogic@selogic-ThinkCentre-E73:~/Desktop/mmn14$ 
+

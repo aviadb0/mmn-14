@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="mmn14"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/aviad/Desktop/mmn14/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j2 -f &quot;/home/aviad/Desktop/mmn14/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/aviad/Desktop/mmn14/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/home/aviad/Desktop/mmn14/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/home/aviad/Desktop/mmn14/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/aviad/Desktop/mmn14/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j2 -f &quot;/home/aviad/Desktop/mmn14/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/aviad/Desktop/mmn14/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/home/aviad/Desktop/mmn14/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/home/aviad/Desktop/mmn14/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/aviad/Desktop/mmn14/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j2 -f &quot;/home/aviad/Desktop/mmn14/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/aviad/Desktop/mmn14/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/home/aviad/Desktop/mmn14/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/home/aviad/Desktop/mmn14/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="mmn14">
+				<Option output="/home/aviad/Desktop/mmn14/cmake-build-debug/mmn14" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/aviad/Desktop/mmn14/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/aviad/Desktop/mmn14/."/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j2 -f &quot;/home/aviad/Desktop/mmn14/cmake-build-debug/Makefile&quot;  VERBOSE=1 mmn14"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/aviad/Desktop/mmn14/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/home/aviad/Desktop/mmn14/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/home/aviad/Desktop/mmn14/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="mmn14/fast">
+				<Option output="/home/aviad/Desktop/mmn14/cmake-build-debug/mmn14" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/aviad/Desktop/mmn14/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/aviad/Desktop/mmn14/."/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j2 -f &quot;/home/aviad/Desktop/mmn14/cmake-build-debug/Makefile&quot;  VERBOSE=1 mmn14/fast"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/aviad/Desktop/mmn14/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/home/aviad/Desktop/mmn14/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/home/aviad/Desktop/mmn14/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/aviad/Desktop/mmn14/Entry.h">
+			<Option target="mmn14"/>
+		</Unit>
+		<Unit filename="/home/aviad/Desktop/mmn14/EntryUtils.c">
+			<Option target="mmn14"/>
+		</Unit>
+		<Unit filename="/home/aviad/Desktop/mmn14/EntryUtils.h">
+			<Option target="mmn14"/>
+		</Unit>
+		<Unit filename="/home/aviad/Desktop/mmn14/Extern.h">
+			<Option target="mmn14"/>
+		</Unit>
+		<Unit filename="/home/aviad/Desktop/mmn14/ExternLocationCalculator.c">
+			<Option target="mmn14"/>
+		</Unit>
+		<Unit filename="/home/aviad/Desktop/mmn14/ExternLocationCalculator.h">
+			<Option target="mmn14"/>
+		</Unit>
+		<Unit filename="/home/aviad/Desktop/mmn14/FileContextDefenition.c">
+			<Option target="mmn14"/>
+		</Unit>
+		<Unit filename="/home/aviad/Desktop/mmn14/FileContextDefenition.h">
+			<Option target="mmn14"/>
+		</Unit>
+		<Unit filename="/home/aviad/Desktop/mmn14/FileContextUtils.c">
+			<Option target="mmn14"/>
+		</Unit>
+		<Unit filename="/home/aviad/Desktop/mmn14/FileContextUtils.h">
+			<Option target="mmn14"/>
+		</Unit>
+		<Unit filename="/home/aviad/Desktop/mmn14/FileUtils.c">
+			<Option target="mmn14"/>
+		</Unit>
+		<Unit filename="/home/aviad/Desktop/mmn14/FileUtils.h">
+			<Option target="mmn14"/>
+		</Unit>
+		<Unit filename="/home/aviad/Desktop/mmn14/GeneralUtils.c">
+			<Option target="mmn14"/>
+		</Unit>
+		<Unit filename="/home/aviad/Desktop/mmn14/GeneralUtils.h">
+			<Option target="mmn14"/>
+		</Unit>
+		<Unit filename="/home/aviad/Desktop/mmn14/IntUtils.c">
+			<Option target="mmn14"/>
+		</Unit>
+		<Unit filename="/home/aviad/Desktop/mmn14/IntUtils.h">
+			<Option target="mmn14"/>
+		</Unit>
+		<Unit filename="/home/aviad/Desktop/mmn14/LineUtils.c">
+			<Option target="mmn14"/>
+		</Unit>
+		<Unit filename="/home/aviad/Desktop/mmn14/LineUtils.h">
+			<Option target="mmn14"/>
+		</Unit>
+		<Unit filename="/home/aviad/Desktop/mmn14/LogUtils.c">
+			<Option target="mmn14"/>
+		</Unit>
+		<Unit filename="/home/aviad/Desktop/mmn14/LogUtils.h">
+			<Option target="mmn14"/>
+		</Unit>
+		<Unit filename="/home/aviad/Desktop/mmn14/OperationData.h">
+			<Option target="mmn14"/>
+		</Unit>
+		<Unit filename="/home/aviad/Desktop/mmn14/Parser.c">
+			<Option target="mmn14"/>
+		</Unit>
+		<Unit filename="/home/aviad/Desktop/mmn14/Parser.h">
+			<Option target="mmn14"/>
+		</Unit>
+		<Unit filename="/home/aviad/Desktop/mmn14/SmallComponentDefenitions.h">
+			<Option target="mmn14"/>
+		</Unit>
+		<Unit filename="/home/aviad/Desktop/mmn14/Symbol.h">
+			<Option target="mmn14"/>
+		</Unit>
+		<Unit filename="/home/aviad/Desktop/mmn14/WordsGenerator.c">
+			<Option target="mmn14"/>
+		</Unit>
+		<Unit filename="/home/aviad/Desktop/mmn14/WordsGenerator.h">
+			<Option target="mmn14"/>
+		</Unit>
+		<Unit filename="/home/aviad/Desktop/mmn14/constants.h">
+			<Option target="mmn14"/>
+		</Unit>
+		<Unit filename="/home/aviad/Desktop/mmn14/main.c">
+			<Option target="mmn14"/>
+		</Unit>
+		<Unit filename="/home/aviad/Desktop/mmn14/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
