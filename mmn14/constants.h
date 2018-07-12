@@ -44,6 +44,7 @@
 #define FALSE 0
 #define INITIAL_CAPACITY 8
 #define IMMEDIATE "immediate"
+#define IMMEDIATE_MEMORY_REGISTER immediate | memory | regist
 #define INC_OPERATION "inc"
 #define IMMEDIATE_CHAR '#'
 #define JUMP_START '('
