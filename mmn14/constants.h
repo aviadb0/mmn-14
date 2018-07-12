@@ -56,7 +56,7 @@
 #define LABEL_END ':'
 #define LEA_OPERATION "lea"
 #define MAXIMUM_DATA_LENGTH 8191
-#define MEM_WORD_BITS 10
+#define MEM_WORD_BITS 14
 #define MAX_LINE 80
 #define MAX_OP_LEN 4
 #define MOV_OPERATION "mov"
