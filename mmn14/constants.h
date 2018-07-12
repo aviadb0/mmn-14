@@ -21,7 +21,7 @@
 #define ADDRESSING_ALL immediate | memory | matrix | regist
 #define BASE4_FIRST_TWO_DIGIT 4
 #define BASE_MEM_ADDR 100
-#define BASE4_ZERO_VALUE 'a'
+#define BASE4_ZERO_VALUE '.'
 #define BITS_IN_BYTE 8
 #define BNE_OPERATION "bne"
 #define BOTH_REGIST 2
@@ -70,6 +70,8 @@
 #define MAZ_AMOUNT_CODE_LINES 25
 #define MAX_BASE4_VALUE 1023
 #define MATRIX_SYMBOL_START ".mat"
+#define MEMORY_JUMP_REGISTER memory | jump | regist
+#define MEMORY_REGISTER memory | regist
 #define MEMORY_REGISTER_MATRIX memory | regist | matrix
 #define MINUS '-'
 #define MATRIX_DIMENSION_START '['
