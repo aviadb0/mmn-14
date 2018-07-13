@@ -105,5 +105,9 @@ int isNumInRange(int num);
 	check if the dest is jump
 */
 int isOpDestIsJump(Op *op);
+/*
+	return address type of the parameter in jump
+*/
+int getAddressTypeJumpOp(JumpOp type);
 
 #endif

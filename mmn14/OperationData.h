@@ -17,8 +17,8 @@ typedef enum Addressing {
 
 typedef enum jumpOp {
 	isNumber = 0,
-	isRegister = 1,
-	isLabel = 2
+	isRegister = 3,
+	isLabel = 1
 } jumpOp;
 /*
 	Operand struct represent a full Operand in the system, every operand has: Address,label etc..
@@ -58,7 +58,7 @@ typedef struct Op {
 	int op_code;
 	Operand src;
 	Operand dst;
-	int binary_size;
+	int binary_size; /*how much word */
 } Op;
 
 /*

@@ -21,7 +21,7 @@ void generateWordsInMemory(FileContext* FileContext, int* words);
 /*
 this method calculate a word based on the Op and the src\dest address
 */
-int calcWord(Op* op, int destinationAddress, int sourceAddress);
+int calcWord(Op* op, int destinationAddress, int sourceAddress, int op1Address, int op2Address);
 
 /*
 this method checks if the op type is regist

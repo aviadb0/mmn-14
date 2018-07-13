@@ -307,6 +307,22 @@ int getAddressType(Addressing addressType)
 }
 
 /*
+	return address type of the parameter in jump
+*/
+int getAddressTypeJumpOp(JumpOp type)
+{
+	if (type == isNumber) {
+		return ADDR_IMMEDIATE;
+	} else if (type == isLabel) {
+        return ADDR_MEMORY;
+    }
+	else if (type == isRegister) {
+		return ADDR_REGISTER;
+	}
+
+	return TYPE_UNKNOWN;
+}
+/*
 	reversing string
 */
 void reverseString(char * str)

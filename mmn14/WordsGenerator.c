@@ -50,30 +50,38 @@ int handleMemoryOperandType(Operand *operand, FileContext *fileContext) {
 */
 int buildWordFromOp(Op* op)
 {
-	int destinationAddress, sourceAddress;
+	int destinationAddress, sourceAddress, op1Address = 0,op2Address = 0;
 
-	if (op->operands > 0) {
+	if (op->operands > 0) { /* dest exist */
 		destinationAddress = getAddressType(op->dst.type);
+		if (destinationAddress == ADDR_JUMP)
+		{
+			op1Address = getAddressTypeJumpOp(op->dst.data.jump_data.op1Type);
+			op2Address = getAddressTypeJumpOp(op->dst.data.jump_data.op2Type);
+		}
+
 	}
 	else {
 		destinationAddress = 0;
 	}
 
-	if (op->operands == 2) {
+	if (op->operands == 2) { /* src exist */
 		sourceAddress = getAddressType(op->src.type);
 	}
 	else {
 		sourceAddress = 0;
 	}
 
-	return calcWord(op, destinationAddress, sourceAddress);
+	return calcWord(op, destinationAddress, sourceAddress, op1Address,op2Address);
 }
 
 /*
 	this method calculate a word based on the Op and the src\dest address
 */
-int calcWord(Op* op, int destinationAddress, int sourceAddress) {
+int calcWord(Op* op, int destinationAddress, int sourceAddress, int op1Address, int op2Address) {
 	int word = 0;
+	word = (word << ADDRESSING_BIT_WIDTH) + op1Address; /* insert param1 addressing - just if jump */
+	word = (word << ADDRESSING_BIT_WIDTH) + op2Address; /* insert param2 addressing - just if jump */
 	word = (word << OPCODE_BIT_WIDTH) + op->op_code;
 	word = (word << ADDRESSING_BIT_WIDTH) + sourceAddress;
 	word = (word << ADDRESSING_BIT_WIDTH) + destinationAddress;
