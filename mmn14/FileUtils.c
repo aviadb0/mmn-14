@@ -225,7 +225,6 @@ void outputObjectFile(FileContext* FileContext, char* file)
 {
 	int i;
 	int* words = malloc(sizeof(int)* (FileContext->instructionCounter + FileContext->data_count));
-	char buffer[MAX_BASE2_INT_LEN + 1], instructionCounter_buff[MAX_BASE2_INT_LEN + 1];
 	char* fileFullName = malloc(strlen(file) + strlen(OB_SUFFIX) + 1);
 	FILE* objectFile;
 
@@ -235,9 +234,8 @@ void outputObjectFile(FileContext* FileContext, char* file)
 
 	generateWordsInMemory(FileContext, words);
 
-	fprintf(objectFile, "%s %s\n",
-		convertIntToBase2(FileContext->instructionCounter, instructionCounter_buff, FALSE),
-		convertIntToBase2(FileContext->data_count, buffer, FALSE));
+	fprintf(objectFile, "%d %d\n",
+		FileContext->instructionCounter,FileContext->data_count);
 
 	for (i = 0; i < (FileContext->instructionCounter + FileContext->data_count); i++)
 	{
