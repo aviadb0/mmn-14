@@ -204,8 +204,7 @@ void outputEntryFile(FileContext* FileContext, char* file)
 	for (i = 0; i < FileContext->entryData->entryCounter; i++)
 	{
 		Entry* entry = &FileContext->entryData->entryTable[i];
-		char buf[MAX_BASE4_INT_LEN + 1];
-		fprintf(entryFile, "%s %s", entry->label, convertIntToBase64(entry->lastLocation, buf, FALSE));
+		fprintf(entryFile, "%s %d", entry->label,entry->lastLocation);
 		if (i < FileContext->entryData->entryCounter - 1) {
 			fprintf(entryFile, "\n");
 		}
@@ -226,7 +225,7 @@ void outputObjectFile(FileContext* FileContext, char* file)
 {
 	int i;
 	int* words = malloc(sizeof(int)* (FileContext->instructionCounter + FileContext->data_count));
-	char buffer[MAX_BASE4_INT_LEN + 1], instructionCounter_buff[MAX_BASE4_INT_LEN + 1];
+	char buffer[MAX_BASE2_INT_LEN + 1], instructionCounter_buff[MAX_BASE2_INT_LEN + 1];
 	char* fileFullName = malloc(strlen(file) + strlen(OB_SUFFIX) + 1);
 	FILE* objectFile;
 
@@ -237,16 +236,15 @@ void outputObjectFile(FileContext* FileContext, char* file)
 	generateWordsInMemory(FileContext, words);
 
 	fprintf(objectFile, "%s %s\n",
-		convertIntToBase64(FileContext->instructionCounter, instructionCounter_buff, FALSE),
-		convertIntToBase64(FileContext->data_count, buffer, FALSE));
+		convertIntToBase2(FileContext->instructionCounter, instructionCounter_buff, FALSE),
+		convertIntToBase2(FileContext->data_count, buffer, FALSE));
 
 	for (i = 0; i < (FileContext->instructionCounter + FileContext->data_count); i++)
 	{
-		char addressBuffer[MAX_BASE4_INT_LEN + 1];
-		char wordBuffer[MAX_BASE4_INT_LEN + 1];
+		char wordBuffer[MAX_BASE2_INT_LEN + 1];
 
 		words[i] &= ((1 << MEM_WORD_BITS) - 1);
-		fprintf(objectFile, "%s %s", convertIntToBase64(i + BASE_MEM_ADDR, addressBuffer, FALSE), convertIntToBase64(words[i], wordBuffer, TRUE));
+		fprintf(objectFile, "%c%d %s",'0',i + BASE_MEM_ADDR,convertIntToBase2(words[i], wordBuffer, TRUE));
 		if (i < FileContext->instructionCounter + FileContext->data_count - 1) {
 			fprintf(objectFile, "\n");
 		}
@@ -303,7 +301,7 @@ void runAsmFile(FILE *file, char *filePath)
 }
 
 /*
-	output extern file
+	output extern file    CHECK
 */
 void outputExternFile(FileContext* FileContext, char* file)
 {
@@ -323,10 +321,11 @@ void outputExternFile(FileContext* FileContext, char* file)
 
 	for (i = 0; i < FileContext->externData->externCount; i++) {
 		Extern* _extern = &FileContext->externData->externTable[i];
-		char buf[MAX_BASE4_INT_LEN + 1];
+
+
 		for (j = 0; j < _extern->locations_count; j++)
 		{
-			fprintf(externFile, "%s %s", _extern->label, convertIntToBase64(_extern->locations[j], buf, FALSE));
+			fprintf(externFile, "%s %d", _extern->label,*_extern->locations);
 			if (!ret(i, FileContext, j, _extern)) {
 				fprintf(externFile, "\n");
 			}
