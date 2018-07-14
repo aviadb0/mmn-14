@@ -20,14 +20,14 @@ int parseLineDataStrater(int doesLabelExistInLine, FileContext *FileContext, cha
 	}
 	return TRUE;
 }
-
+/*
 int parseLineMatrixStrater(int doesLabelExistInLine, FileContext *FileContext, char* label, Line line) {
 	if ((doesLabelExistInLine && !addLabelToFileContext(FileContext, label, data, line.lineNum)) || !processFileContextMatrix(line, FileContext)) {
 		return FALSE; 
 	}
 
 	return TRUE;
-}
+}*/
 
 /*
 	this method process the extern part line and updates the FileContext
@@ -477,7 +477,7 @@ int createOperationerand(Line line, Operand* operand)
 			operand->data.jump_data.op1Type = isNumber;
 			temp_line = skipNum(temp_line);
 		}
-		if(temp_line[0]!= OPERAND_DELIM) /*check if ',' after op1*/
+		if(temp_line[0] != OPERAND_DELIM) /*check if ',' after op1*/
 		{
 			writeErrorOrWarningToLog(1, line.lineNum, "wrong format of jump - no ',' after op1");
 			return FALSE;
@@ -513,7 +513,7 @@ int createOperationerand(Line line, Operand* operand)
 			operand->data.jump_data.op2Type = isNumber;
 			temp_line = skipNum(temp_line);
 		}
-		if(temp_line[0]!= OPERAND_DELIM) /*check if ')' after op2*/
+		if(temp_line[0]!= JUMP_END) /*check if ')' after op2*/
 		{
 			writeErrorOrWarningToLog(1, line.lineNum, "wrong format of jump - no ')' after op2");
 			return FALSE;
@@ -522,4 +522,3 @@ int createOperationerand(Line line, Operand* operand)
 	}
 	return FALSE;
 }
-
