@@ -108,6 +108,6 @@ int isOpDestIsJump(Op *op);
 /*
 	return address type of the parameter in jump
 */
-int getAddressTypeJumpOp(JumpOp type);
+int getAddressTypeJumpOp(int type);
 
 #endif

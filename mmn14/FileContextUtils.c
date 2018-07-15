@@ -18,12 +18,12 @@ Symbol* getSymbolFromFileContext(char label[MAXIMUM_LABEL_LENGTH + 1], FileConte
 	int i;
 	for (i = 0; i < FileContext->symbolData->symbolCount;) {
 		Symbol* sym = &FileContext->symbolData->symbolsTable[i++];
-		if (!strcmp(label, sym->name)) {
+		if (!strcmp(label, sym->name)) { /* if found the label in the label table - return a pointer to symbol*/
 			return sym;
 		}
 	}
 
-	return NULL;
+	return NULL; /* didnt found - returns null */
 }
 
 /*

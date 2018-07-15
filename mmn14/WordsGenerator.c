@@ -2,6 +2,7 @@
 
 #include "WordsGenerator.h"
 #include "GeneralUtils.h"
+#include "OperationData.h"
 
 /*
 	this method checks if the op type is regist
@@ -44,7 +45,26 @@ int handleMemoryOperandType(Operand *operand, FileContext *fileContext) {
 	return word;
 }
 
+/*
+	this method calculate a word based on an parameter anf filecontext when the parameter is represent memory
+*/
+int handleJumpMemoryParameterType(Operand *operand, FileContext *fileContext) {
+	int word;
+	Symbol* symbol;
 
+	symbol = getSymbolFromFileContext(operand->data.jump_data.op1Label, fileContext);
+	if (symbol != NULL)
+	{  /* label is exist in symbol list - return label location */
+		word = symbol->location;
+		word = (word << ARE_BIT_WIDTH) + ARE_RELOCATABLE;
+	}
+	else  /* label is external */
+	{
+		word = 0;
+		word = (word << ARE_BIT_WIDTH) + ARE_EXTERNAL;
+	}
+	return word;
+}
 /*
 	general method for building a word from an Op struct
 */
@@ -95,26 +115,26 @@ int calcWord(Op* op, int destinationAddress, int sourceAddress, int op1Address, 
 */
 void generateWordWithOperandAddressing(int* words, FileContext* FileContext, Operand* operand, OperandType type, int* wordsIndex)
 {
-	if (operand->type == matrix) {
-		generateWordWithOperandAddressingForMatrix(words, FileContext, operand, type, wordsIndex);
+	if (operand->type == jump) { /*if jump - call to func for jump */
+		generateWordWithOperandAddressingForJump(words, FileContext, operand, type, wordsIndex);
 		return;
 	}
 
-	generateWordWithOperandAddressingForNotMatrix(words, FileContext, operand, type, wordsIndex);
+	generateWordWithOperandAddressingForNotJump(words, FileContext, operand, type, wordsIndex);
 }
 
 /*
 	this method generates a word from an operand and a filecontext only not matrix related
 */
-void generateWordWithOperandAddressingForNotMatrix(int* words, FileContext* FileContext, Operand* operand, OperandType type, int* wordsIndex) {
-	words[*wordsIndex] = generateWordForNonMatrixOp(operand, FileContext, type);
+void generateWordWithOperandAddressingForNotJump(int* words, FileContext* FileContext, Operand* operand, OperandType type, int* wordsIndex) {
+	words[*wordsIndex] = generateWordForNonJumpOp(operand, FileContext, type);
 	(*wordsIndex)++;
 }
 
 /*
-	creating memory word for non matrix
+	creating memory word for non jump
 */
-int generateWordForNonMatrixOp(Operand* operand, FileContext* FileContext, OperandType type)
+int generateWordForNonJumpOp(Operand* operand, FileContext* FileContext, OperandType type)
 {
 	if (operand->type == immediate) {
 		return handleImmediateOperandType(operand);
@@ -132,14 +152,59 @@ int generateWordForNonMatrixOp(Operand* operand, FileContext* FileContext, Opera
 /*
 	this method generates a word from an operand and a filecontext only matrix related
 */
-void generateWordWithOperandAddressingForMatrix(int* words, FileContext* FileContext, Operand* operand, OperandType type, int* wordsIndex) {
-        int word;
-	words[*wordsIndex] = generateMatrixOperandWord(operand, FileContext);
+void generateWordWithOperandAddressingForJump(int* words, FileContext* FileContext, Operand* operand, OperandType type, int* wordsIndex) {
+	int word;
+	words[*wordsIndex] = generateJumpOperandWord(operand, FileContext);
 	(*wordsIndex)++;
-	word = operand->data.matrix_data.register1;
-	word = (word << REGISTER_BIT_WIDTH) + operand->data.matrix_data.register2;
-	words[*wordsIndex] = (word << ARE_BIT_WIDTH) + ARE_ABSOLUTE;
+	if (operand->data.jump_data.op1Type == isRegister &&
+		operand->data.jump_data.op2Type == isRegister) /* both params are register */
+	{
+		word = operand->data.jump_data.register1;
+		word = (word << REGISTER_BIT_WIDTH) + operand->data.jump_data.register2;
+		words[*wordsIndex] = (word << ARE_BIT_WIDTH) + ARE_ABSOLUTE; /* A,E,R */
+	}
+	else
+	{
+		words[*wordsIndex] = generateWordForJumpParameter1(operand, FileContext); /* generate param1 */
+		(*wordsIndex)++;
+		words[*wordsIndex] = generateWordForJumpParameter2(operand, FileContext); /* generate param2 */
+	}
 	(*wordsIndex)++;
+}
+/*
+	this method generates a word from parameter1 in jump
+*/
+int generateWordForJumpParameter1(Operand *op, FileContext* FileContext)
+{
+	int word = 0;
+	if (op->data.jump_data.op1Type == isRegister) { /* param1 is regiser */
+		word = op->data.jump_data.register1;
+		word = (word << (REGISTER_BIT_WIDTH + ARE_BIT_WIDTH)) + ARE_ABSOLUTE; /* A,E,R */
+	} else if(op->data.jump_data.op1Type == isLabel) {
+		word = handleJumpMemoryParameterType(op,FileContext);
+	} else if (op->data.jump_data.op1Type == isNumber) {
+		word = op->data.jump_data.num1;
+		word = (word << ARE_BIT_WIDTH) + ARE_ABSOLUTE; /* A,E,R */
+	}
+	return word;
+}
+
+/*
+	this method generates a word from parameter2 in jump
+*/
+int generateWordForJumpParameter2(Operand *op, FileContext* FileContext)
+{
+	int word = 0;
+	if (op->data.jump_data.op2Type == isRegister) { /* param2 is regiser */
+		word = op->data.jump_data.register2;
+		word = (word << (REGISTER_BIT_WIDTH + ARE_BIT_WIDTH)) + ARE_ABSOLUTE; /* A,E,R */
+	} else if(op->data.jump_data.op2Type == isLabel) {
+		word = handleJumpMemoryParameterType(op , FileContext);
+	} else if (op->data.jump_data.op2Type == isNumber) {
+		word = op->data.jump_data.num2;
+		word = (word << ARE_BIT_WIDTH) + ARE_ABSOLUTE; /* A,E,R */
+	}
+	return word;
 }
 
 /*
@@ -148,7 +213,7 @@ void generateWordWithOperandAddressingForMatrix(int* words, FileContext* FileCon
 int handleImmediateOperandType(Operand *operand) {
 	int word;
 	word = operand->data.number;
-	word = (word << ARE_BIT_WIDTH) + ARE_ABSOLUTE;
+	word = (word << ARE_BIT_WIDTH) + ARE_ABSOLUTE; /* A,E,R */
 	return word;
 }
 
@@ -159,18 +224,19 @@ int handleRegistOperandType(Operand *operand, OperandType type) {
 	int word;
 	word = operand->data.reg[1] - REGISTER_MIN;
 	if (type == dst)
-		word = (word << ARE_BIT_WIDTH) + ARE_ABSOLUTE;
+		word = (word << ARE_BIT_WIDTH) + ARE_ABSOLUTE; /* A,E,R */
 	else
 		word = (word << (REGISTER_BIT_WIDTH + ARE_BIT_WIDTH)) + ARE_ABSOLUTE;
 	return word;
 }
 
 /*
-	This method calculate word based on the fact that we work on a null Symbol when matrix operation
+	This method calculate word based on the fact that we work on a null Symbol when jump operation
+ - external label
 */
-int calcWordForNullSymbolWhenMatrixOp() {
+int calcWordForNullSymbolWhenJumpOp() {
 	int word = 0;
-	word = (word << ARE_BIT_WIDTH) + ARE_EXTERNAL;
+	word = (word << ARE_BIT_WIDTH) + ARE_EXTERNAL; /* A,E,R */
 
 	return word;
 }
@@ -181,14 +247,14 @@ int calcWordForNullSymbolWhenMatrixOp() {
 void generateWordsInMemory(FileContext* FileContext, int* words)
 {
 	int i, j, wordIndex = 0;
-	for (i = 0; i < FileContext->operationData->operationsCounter; i++)
+	for (i = 0; i < FileContext->operationData->operationsCounter; i++) /* generate operation words */
 	{
 		Op* op = &FileContext->operationData->operationsTable[i];
-		words[wordIndex++] = buildWordFromOp(op);
+		words[wordIndex++] = buildWordFromOp(op); /* build the first word */
 		if (op->operands == 0) {
 			continue;
 		}
-		else if (isRegist(op)) {
+		else if (isRegist(op)) { /* register address */
 			words[wordIndex++] = generateWordForRegisters(op->src.data.reg, op->dst.data.reg);
 			continue;
 		}
@@ -196,22 +262,22 @@ void generateWordsInMemory(FileContext* FileContext, int* words)
 			generateWordWithOperandAddressing(words, FileContext, &op->src, src, &wordIndex);
 			generateWordWithOperandAddressing(words, FileContext, &op->dst, dst, &wordIndex);
 		}
-		else if (op->operands == 1) {
+		else if (op->operands == 1) { /* just 1 operand - generate dest */
 			generateWordWithOperandAddressing(words, FileContext, &op->dst, dst, &wordIndex);
 			continue;
 		}
 	}
 
-	for (j = 0; j < FileContext->data_count; )
+	for (j = 0; j < FileContext->data_count; ) /* generate data words */
 	{
 		words[wordIndex++] = FileContext->data_table[j++];
 	}
 }
 
 /*
-	This method calculate word based on the fact that we work on a non null Symbol when matrix operation
+	This method calculate word based on the fact that we work on a non null Symbol when jump operation
 */
-int calcWordForNotNullSymbolWhenMatrixOp(Symbol *symbol) {
+int calcWordForNotNullSymbolWhenJumpOp(Symbol *symbol) {
 	int word;
 	word = symbol->location;
 	word = (word << ARE_BIT_WIDTH) + ARE_RELOCATABLE;
@@ -220,12 +286,12 @@ int calcWordForNotNullSymbolWhenMatrixOp(Symbol *symbol) {
 }
 
 /*
-	this method generates matrix operand word based on the operand and the filecontext
+	this method generates jump operand word based on the operand and the filecontext
 */
-int generateMatrixOperandWord(Operand* operand, FileContext* FileContext)
+int generateJumpOperandWord(Operand* operand, FileContext* FileContext)
 {
-	Symbol* symbol = getSymbolFromFileContext(operand->data.matrix_data.label, FileContext);
+	Symbol* symbol = getSymbolFromFileContext(operand->data.jump_data.label, FileContext);
 
-	return symbol == NULL ? calcWordForNullSymbolWhenMatrixOp() : calcWordForNotNullSymbolWhenMatrixOp(symbol);
+	return symbol == NULL ? calcWordForNullSymbolWhenJumpOp() : calcWordForNotNullSymbolWhenJumpOp(symbol);
 }
 

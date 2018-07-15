@@ -76,7 +76,6 @@ void calcExternLocation(FileContext* FileContext)
 	}
 }
 
-
 /*
 	check if op destination is memory type
 */

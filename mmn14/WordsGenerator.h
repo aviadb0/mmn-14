@@ -34,14 +34,14 @@ this method handles the special case of two register operands sharing a single m
 int generateWordForRegisters(char src_reg[3], char dst_reg[3]);
 
 /*
-this method generates a word from an operand and a filecontext only matrix related
+this method generates a word from an operand and a filecontext only jump related
 */
-void generateWordWithOperandAddressingForMatrix(int* words, FileContext* FileContext, Operand* operand, OperandType type, int* wordsIndex);
+void generateWordWithOperandAddressingForJump(int* words, FileContext* FileContext, Operand* operand, OperandType type, int* wordsIndex);
 
 /*
-this method generates a word from an operand and a filecontext only not matrix related
+this method generates a word from an operand and a filecontext only not jump related
 */
-void generateWordWithOperandAddressingForNotMatrix(int* words, FileContext* FileContext, Operand* operand, OperandType type, int* wordsIndex);
+void generateWordWithOperandAddressingForNotJump(int* words, FileContext* FileContext, Operand* operand, OperandType type, int* wordsIndex);
 
 /*
 this method calculate a word based on an operand anf filecontext when the operand is represent memory
@@ -61,17 +61,17 @@ int handleRegistOperandType(Operand *operand, OperandType type);
 /*
 	creating memory word for non matrix
 */
-int generateWordForNonMatrixOp(Operand* operand, FileContext* FileContext, OperandType type);
+int generateWordForNonJumpOp(Operand* operand, FileContext* FileContext, OperandType type);
 
 /*
-This method calculate word based on the fact that we work on a null Symbol when matrix operation
+This method calculate word based on the fact that we work on a null Symbol when jump operation
 */
-int calcWordForNullSymbolWhenMatrixOp();
+int calcWordForNullSymbolWhenJumpOp();
 
 /*
-This method calculate word based on the fact that we work on a non null Symbol when matrix operation
+This method calculate word for label based on the fact that we work on a non null Symbol when jump operation
 */
-int calcWordForNotNullSymbolWhenMatrixOp(Symbol *symbol);
+int calcWordForNotNullSymbolWhenJumpOp(Symbol *symbol);
 
 /*
 general method for building a word from an Op struct
@@ -84,9 +84,24 @@ this method generates a word from an operand and a filecontext only Address rela
 void generateWordWithOperandAddressing(int* words, FileContext* FileContext, Operand* operand, OperandType type, int* words_idx);
 
 /*
-this method generates matrix operand word based on the operand and the filecontext
+this method generates jump operand label word based on the operand and the filecontext
 */
-int generateMatrixOperandWord(Operand* operand, FileContext* FileContext);
+int generateJumpOperandWord(Operand* operand, FileContext* FileContext);
+
+/*
+	this method calculate a word based on an parameter anf filecontext when the parameter is represent memory
+*/
+int handleJumpMemoryParameterType(Operand *operand, FileContext *fileContext);
+
+/*
+	this method generates a word from parameter1 in jump
+*/
+int generateWordForJumpParameter1(Operand *op, FileContext* FileContext);
+
+/*
+	this method generates a word from parameter2 in jump
+*/
+int generateWordForJumpParameter2(Operand *op, FileContext* FileContext);
 
 #endif
 

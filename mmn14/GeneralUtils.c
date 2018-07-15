@@ -309,7 +309,7 @@ int getAddressType(Addressing addressType)
 /*
 	return address type of the parameter in jump
 */
-int getAddressTypeJumpOp(JumpOp type)
+int getAddressTypeJumpOp(int type)
 {
 	if (type == isNumber) {
 		return ADDR_IMMEDIATE;
