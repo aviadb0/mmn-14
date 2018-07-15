@@ -59,17 +59,18 @@ int isLineStartsWithEntry(char* line)
 /*
 	this method returns TRUE if the op is in memory type and label dont exist in fileContext
 */
-int isOpMemoryAndLabelDontExist(Op *op, FileContext *fileContext) {
-	if (op->dst.type == memory && !isLabelOrExternExistInFileContext(op->dst.data.label, fileContext)) /* check if the label exist */
+int isOpMemoryAndLabelDontExist(Operand *op, FileContext *fileContext) {
+	if (op->type == memory &&
+		!isLabelOrExternExistInFileContext(op->data.label, fileContext)) /* check if the label exist */
         return TRUE;
-	if(op->dst.type == jump) { /* check if the label exist for jump */
-        if(!isLabelExistInFileContext(op->dst.data.jump_data.label, fileContext)) /* check first label */
+	if(op->type == jump) { /* check if the label exist for jump */
+        if(!isLabelOrExternExistInFileContext(op->data.jump_data.label, fileContext)) /* check first label */
             return TRUE;
-        if(op->dst.data.jump_data.op1Type == isLabel &&
-                !isLabelExistInFileContext(op->dst.data.jump_data.op1Label, fileContext))/* check first parameter */
+        if(op->data.jump_data.op1Type == isLabel &&
+                !isLabelOrExternExistInFileContext(op->data.jump_data.op1Label, fileContext))/* check first parameter */
             return TRUE;
-        if(op->dst.data.jump_data.op2Type == isLabel &&
-           !isLabelExistInFileContext(op->dst.data.jump_data.op2Label, fileContext))/* check first parameter */
+        if(op->data.jump_data.op2Type == isLabel &&
+           !isLabelOrExternExistInFileContext(op->data.jump_data.op2Label, fileContext))/* check first parameter */
             return TRUE;
     }
     return FALSE;
@@ -87,10 +88,20 @@ int validateUsedLabelsDeclared(FileContext* FileContext)
 		if (!op->operands) { /* no operand -no labels */
 			continue;
 		}
-		if (op->operands >= 1)
+		if (op->operands == 1)
 		{
-			if (isOpMemoryAndLabelDontExist(op,FileContext)) { /* check for labels and check if declared */
+			if (isOpMemoryAndLabelDontExist(&(op->dst),FileContext)) { /* check for labels and check if declared */
 				writeErrorOrWarningToLogWithNoLineNumber(2, "label '%s' used but not declared", op->dst.data.label);
+				existsError = TRUE;
+			}
+		}
+		else { /* 2 operands */
+			if (isOpMemoryAndLabelDontExist(&(op->dst), FileContext)) { /* check for labels and check if declared */
+				writeErrorOrWarningToLogWithNoLineNumber(2, "label '%s' used but not declared", op->dst.data.label);
+				existsError = TRUE;
+			}
+			if (isOpMemoryAndLabelDontExist(&(op->src),FileContext)) {
+				writeErrorOrWarningToLogWithNoLineNumber(2, "label '%s' used but not declared", op->src.data.label);
 				existsError = TRUE;
 			}
 		}
@@ -143,12 +154,18 @@ FILE* openFile(char *filePath) {
 
 	/* malloc failed! */
 	if (fileFullName == NULL) {
+		free(fileFullName);
 		return NULL;
 	}
 	else {
-		strcpy(fileFullName, filePath);
+		strcpy(fileFullName, filePath); /* add the suffix ".as" to file name */
 		strcat(fileFullName, AS_SUFFIX);
-		file = fopen(fileFullName, "r");
+		if (!(file = fopen(fileFullName, "r")))
+		{ /* open file failed! */
+			printf("error! can't open file %s\n",fileFullName);
+			free(fileFullName);
+			return NULL;
+		}
 		free(fileFullName);
 		return file;
 	}
@@ -180,7 +197,7 @@ int handleNoErrorWhenRunningAsmFileCase1(FileContext *fileContext) {
 	int lineError;
 	lineError = validateThatEntryExistsInFileContext(fileContext); /* check if all the entry exist in file */
 	calcExternLocation(fileContext); /* calc the extern location and insert locations into extern table */
-	lineError = validateUsedLabelsDeclared(fileContext); /* check if all labels are declared */
+	lineError += validateUsedLabelsDeclared(fileContext); /* check if all labels are declared */
 
 	return lineError;
 }
@@ -229,22 +246,22 @@ void outputObjectFile(FileContext* FileContext, char* file)
 	FILE* objectFile;
 
 	strcpy(fileFullName, file);
-	strcat(fileFullName, OB_SUFFIX);
+	strcat(fileFullName, OB_SUFFIX); /* add ".ob" suffix */
 	objectFile = fopen(fileFullName, "w");
 
-	generateWordsInMemory(FileContext, words);
+	generateWordsInMemory(FileContext, words);  /* complete the list of the words */
 
-	fprintf(objectFile, "%d %d\n",
-		FileContext->instructionCounter,FileContext->data_count);
+	fprintf(objectFile, "\t%d %d\n",
+		FileContext->instructionCounter,FileContext->data_count);  /* print to file the num of instructions and data words */
 
 	for (i = 0; i < (FileContext->instructionCounter + FileContext->data_count); i++)
 	{
 		char wordBuffer[MAX_BASE2_INT_LEN + 1];
 
-		words[i] &= ((1 << MEM_WORD_BITS) - 1);
-		fprintf(objectFile, "%c%d %s",'0',i + BASE_MEM_ADDR,convertIntToBase2(words[i], wordBuffer, TRUE));
+		words[i] &= ((1 << MEM_WORD_BITS) - 1);  /* to zero all the bits after MEM_WORD_BITS (here 14) for printing */
+		fprintf(objectFile, "%c%d %s",'0',i + BASE_MEM_ADDR,convertIntToBase2(words[i], wordBuffer, TRUE));  /* print the word */
 		if (i < FileContext->instructionCounter + FileContext->data_count - 1) {
-			fprintf(objectFile, "\n");
+			fprintf(objectFile, "\n");  /* add \n if not the end */
 		}
 	}
 
@@ -278,7 +295,7 @@ void runAsmFile(FILE *file, char *filePath)
 		tempPtr = trimString(tempLine);
 		finalLine.str = tempPtr;
 		finalLine.lineNum = ++lineNumber;
-		if (lineExists(tempLine, file)) {
+		if (lineExists(tempLine, file)) { /* newline is not exist in line*/
 			while (fgetc(file) != EOF);
 		}
 		/* if hit, there is an error in the line! */
