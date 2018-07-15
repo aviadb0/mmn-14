@@ -188,7 +188,7 @@
 
 #define RED_OPERATION "red"
 
-#define REGISTER_BIT_WIDTH 4
+#define REGISTER_BIT_WIDTH 6
 
 #define SUB_OPERATION "sub"
 
