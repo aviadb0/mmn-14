@@ -11,8 +11,9 @@
       <entry action="CPP.NewHeaderFile" count="1" />
       <entry action="ChangeFileEncodingAction" count="1" />
       <entry action="ChangesView.GroupBy" count="2" />
+      <entry action="ChangesView.Move" count="1" />
       <entry action="CheckinFiles" count="3" />
-      <entry action="CheckinProject" count="3" />
+      <entry action="CheckinProject" count="7" />
       <entry action="ChooseDebugConfiguration" count="3" />
       <entry action="ChooseRunConfiguration" count="13" />
       <entry action="Clean" count="5" />
@@ -55,8 +56,9 @@
       <entry action="FindNext" count="1" />
       <entry action="FindUsages" count="2" />
       <entry action="Generate" count="1" />
-      <entry action="Git.Merge" count="1" />
-      <entry action="Git.Pull" count="4" />
+      <entry action="Git.Configure.Remotes" count="1" />
+      <entry action="Git.Merge" count="2" />
+      <entry action="Git.Pull" count="5" />
       <entry action="Git.Rebase" count="1" />
       <entry action="Github.Rebase" count="1" />
       <entry action="Github.Share" count="1" />
@@ -94,7 +96,7 @@
       <entry action="ToggleFullScreen" count="1" />
       <entry action="ToggleLineBreakpoint" count="406" />
       <entry action="Valgrind" count="2" />
-      <entry action="Vcs.Push" count="14" />
+      <entry action="Vcs.Push" count="18" />
       <entry action="Vcs.QuickListPopupAction" count="1" />
       <entry action="Vcs.ShowTabbedFileHistory" count="1" />
       <entry action="Vcs.UpdateProject" count="2" />
@@ -197,14 +199,15 @@
       <entry path="Run -&gt; Run" count="119" />
       <entry path="Run -&gt; Run Valgrind Memcheck" count="2" />
       <entry path="Run -&gt; Run..." count="13" />
-      <entry path="VCS -&gt; Commit" count="3" />
+      <entry path="VCS -&gt; Commit" count="7" />
       <entry path="VCS -&gt; Git -&gt; Commit File" count="3" />
       <entry path="VCS -&gt; Git -&gt; Compare with the Same Repository Version" count="3" />
-      <entry path="VCS -&gt; Git -&gt; Merge Changes..." count="1" />
-      <entry path="VCS -&gt; Git -&gt; Pull..." count="4" />
-      <entry path="VCS -&gt; Git -&gt; Push..." count="14" />
+      <entry path="VCS -&gt; Git -&gt; Merge Changes..." count="2" />
+      <entry path="VCS -&gt; Git -&gt; Pull..." count="5" />
+      <entry path="VCS -&gt; Git -&gt; Push..." count="18" />
       <entry path="VCS -&gt; Git -&gt; Rebase my GitHub fork" count="1" />
       <entry path="VCS -&gt; Git -&gt; Rebase..." count="1" />
+      <entry path="VCS -&gt; Git -&gt; Remotes..." count="1" />
       <entry path="VCS -&gt; Git -&gt; Show Current Revision" count="1" />
       <entry path="VCS -&gt; Git -&gt; Show History" count="1" />
       <entry path="VCS -&gt; Import into Version Control -&gt; Share Project on GitHub" count="1" />
@@ -280,6 +283,7 @@
     <counts>
       <entry action="Build@NavBarToolbar" count="3" />
       <entry action="ChangesView.GroupBy@ChangesBrowser" count="2" />
+      <entry action="ChangesView.Move@ChangesBrowser" count="1" />
       <entry action="Debug@NavBarToolbar" count="55" />
       <entry action="Rerun@DebuggerToolbar" count="103" />
       <entry action="Rerun@RunnerToolbar" count="3" />
@@ -308,6 +312,7 @@
       <entry action="com.intellij.openapi.actionSystem.DefaultActionGroup@EditorToolbar" count="2" />
       <entry action="com.intellij.openapi.editor.actions.ScrollToTheEndToolbarAction@EventLog" count="1" />
       <entry action="com.intellij.openapi.editor.actions.ScrollToTheEndToolbarAction@RunnerToolbar" count="1" />
+      <entry action="com.intellij.openapi.vcs.changes.ui.MultipleLocalChangeListsBrowser$ShowHideUnversionedFilesAction@ChangesBrowser" count="4" />
       <entry action="com.intellij.ui.CommonActionsPanel$MyActionButton@ToolbarDecorator" count="1" />
       <entry action="com.jetbrains.cidr.cpp.execution.build.CMakeBuild$1$1@CMakeConsole" count="1" />
       <entry action="org.jetbrains.plugins.terminal.TerminalView$CloseSession@Terminal" count="4" />
@@ -328,7 +333,7 @@
       <entry feature="ide.settings.Appearance" count="2" />
       <entry feature="ide.settings.Font" count="1" />
       <entry feature="ide.settings.GitHub" count="1" />
-      <entry feature="ideaapp.started" count="17" />
+      <entry feature="ideaapp.started" count="18" />
       <entry feature="new.cmake.project.C Executable" count="3" />
       <entry feature="terminal.linux" count="4" />
       <entry feature="tips.of.the.day.next" count="7" />

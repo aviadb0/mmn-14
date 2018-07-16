@@ -460,3 +460,33 @@ git remote -v
 git remote rm origin
 git remote -v
 git config --list
+make
+./assembler 1
+make
+./assembler 1
+make
+./assembler 1
+make
+./assembler 1
+make
+./assembler 1
+make
+./assembler 1
+make
+./assembler 1
+make
+./assembler 1
+make
+clear
+make
+./assembler 1
+make
+
+make
+./assembler 1
+make
+git push
+git push mmn14
+git add -A 
+git add -mmn14
+git add -A 

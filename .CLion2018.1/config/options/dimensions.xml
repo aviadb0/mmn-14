@@ -17,6 +17,7 @@
     <location key="git4idea.merge.GitMergeDialog.0.0.1280.800" x="433" y="197" />
     <location key="git4idea.merge.GitPullDialog.0.0.1280.800" x="392" y="147" />
     <location key="#com.intellij.fileTypes.FileTypeChooser.0.0.1280.800" x="375" y="209" />
+    <location key="VCS.ChangelistChooser.0.0.1280.800" x="512" y="320" />
     <size key="FileChooserDialogImpl.0.0.1280.800" width="424" height="492" />
     <size key="#Notifications.0.0.1280.800" width="486" height="571" />
     <size key="SettingsEditor.0.0.1280.800" width="1194" height="773" />
@@ -36,7 +37,7 @@
     <size key="git4idea.rebase.GitRebaseDialog.0.0.1280.800" width="382" height="283" />
     <size key="CommitChangelistDialog2.0.0.1280.800" width="821" height="773" />
     <size key="git4idea.merge.GitMergeDialog.0.0.1280.800" width="471" height="431" />
-    <size key="git4idea.merge.GitPullDialog.0.0.1280.800" width="626" height="431" />
+    <size key="git4idea.merge.GitPullDialog.0.0.1280.800" width="616" height="431" />
     <size key="DebuggerActiveHint.0.0.1280.800" width="447" height="474" />
     <size key="#com.intellij.fileTypes.FileTypeChooser.0.0.1280.800" width="577" height="406" />
   </component>
