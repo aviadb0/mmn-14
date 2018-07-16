@@ -35,7 +35,7 @@ int handleNoErrorWhenRunningAsmFileCase1(FileContext *fileContext);
 /*
 	this methid returns TRUE if the op is in memory type and label dont exist in fileContext
 */
-int isOpMemoryAndLabelDontExist(Op *op, FileContext *fileContext);
+int isOpMemoryAndLabelDontExist(Operand *op, FileContext *fileContext);
 
 /*
 	is line exists

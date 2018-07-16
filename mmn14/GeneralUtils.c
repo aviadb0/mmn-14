@@ -197,19 +197,6 @@ int tryGetLabelCharEdition(char * line, char label[MAXIMUM_LABEL_LENGTH + 1])
 	return TRUE;
 }
 
-/*
-	check if the destination is matrix
-*/
-int isOpDestIsMatrix(Op *op) {
-	return op->operands >= 1 && op->dst.type == matrix;
-}
-
-/*
-	check if the source is matrix
-*/
-int isOpSourceIsMatrix(Op *op) {
-	return op->operands == 2 && op->src.type == matrix;
-}
 
 /*
 	check if the dest is jump

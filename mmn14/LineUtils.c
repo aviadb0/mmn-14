@@ -109,10 +109,3 @@ int startsWithAData(char* line)
 	return strstr(line, DATA_SYMBOL_START) == line;
 }
 
-/*
-	check if the line strats with a matrix
-*/
-int startsWithAMatrix(char* line)
-{
-	return strstr(line, MATRIX_SYMBOL_START) == line;
-}

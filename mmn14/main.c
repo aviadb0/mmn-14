@@ -18,8 +18,9 @@ int main(int argc, char** argv)
 	{
 	        FILE* file;
 		fprintf(stderr, "Path: %s\n", argv[i]);
-		file = openFile(argv[i]);
-		runAsmFile(file, argv[i]);
+		if (!(file = openFile(argv[i])))
+			continue; /* cant open file */
+		runAsmFile(file, argv[i]); /* parse the file */
 	}
 
 	return 0;

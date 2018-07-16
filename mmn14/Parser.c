@@ -78,9 +78,7 @@ int parseAsmLine(Line line, FileContext* FileContext)
 		return parseLineStringStrater(doesLabelExistInLine, FileContext, label, line);
 	} else if (startsWithAData(line.str)) {
 		return parseLineDataStrater(doesLabelExistInLine, FileContext, label, line);
-	}/* else if (startsWithAMatrix(line.str)) {
-		return parseLineMatrixStrater(doesLabelExistInLine, FileContext, label, line);
-	}*/ else if (isLineStartsWithEntry(line.str)) {
+	} else if (isLineStartsWithEntry(line.str)) {
 		return processFileContextEntry(line, FileContext);
 	} else if (startsWithAExtern(line.str)) {
 		return processExtern(line, FileContext);
@@ -439,7 +437,7 @@ int createOperationerand(Line line, Operand* operand)
 	}
 	else if (type == jump)
 	{
-		int num, isLabelFlag;
+		int num, isLabelFlag = 0;
 		char tmp[MAXIMUM_OPERATION_LENGTH + 1];
 		char label[MAXIMUM_LABEL_LENGTH + 1];
 		char* temp_line = tmp;
@@ -449,7 +447,7 @@ int createOperationerand(Line line, Operand* operand)
 		temp_line += 1; /*for '(' char*/
 		/*first operand*/
 		if (!isLineStartsWithRegister(temp_line) && !(temp_line[0] == IMMEDIATE_CHAR && isLineStartsWithANumber(temp_line+1,&num)) &&
-			!(isLabelFlag =tryGetLabelCharEdition(temp_line,label))) /*check first operand - is num/register/label*/
+			!(isLabelFlag = tryGetLabelCharEdition(temp_line,label))) /*check first operand - is num/register/label*/
 		{
 			writeErrorOrWarningToLog(1, line.lineNum, "invalid operand");
 			return FALSE;
@@ -475,11 +473,11 @@ int createOperationerand(Line line, Operand* operand)
 			}
 			operand->data.jump_data.num1 = num;
 			operand->data.jump_data.op1Type = isNumber;
-			temp_line = skipNum(temp_line);
+			temp_line = skipNum(temp_line); /* skip the chars of the number */
 		}
 		if(temp_line[0] != OPERAND_DELIM) /*check if ',' after op1*/
 		{
-			writeErrorOrWarningToLog(1, line.lineNum, "wrong format of jump - no ',' after op1");
+			writeErrorOrWarningToLog(1, line.lineNum, "wrong format of jump - no ',' after first parameter");
 			return FALSE;
 		}
 		temp_line++; /*for ',' char*/
@@ -515,7 +513,7 @@ int createOperationerand(Line line, Operand* operand)
 		}
 		if(temp_line[0]!= JUMP_END) /*check if ')' after op2*/
 		{
-			writeErrorOrWarningToLog(1, line.lineNum, "wrong format of jump - no ')' after op2");
+			writeErrorOrWarningToLog(1, line.lineNum, "wrong format of jump - no ')' after the second parameter");
 			return FALSE;
 		}
 		return TRUE;
