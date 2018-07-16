@@ -5,7 +5,7 @@
 
 
 /*
-	This function convert the text to weird 2 base.
+	This function converts the text to weird 2 base.
 	
 */
 
