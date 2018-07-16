@@ -89,9 +89,9 @@ Addressing getOperandType(Line line);
 
 /*
 	this method returns boolean TRUE if it successed to
- build an operand based on the line,
- False otherwise.
- Check for garbage chars after the last operand with the flag - checkForGarbage.
+    build an operand based on the line,
+    False otherwise.
+    Check for garbage chars after the last operand with the flag - checkForGarbage.
 */
 int createOperand(Line line, Operand* operand, int checkForGarbage);
 
@@ -101,11 +101,8 @@ int createOperand(Line line, Operand* operand, int checkForGarbage);
 int addLabelToFileContext(FileContext* FileContext, char label[MAXIMUM_LABEL_LENGTH + 1], SymbolType type, int lineNum);
 
 /*
-	this method add the data to the fileContext
-*/
-void addDataToTable(FileContext *fileContext, int* data);
-
-/* Skips the chars of the num. returns pointer to the right pos. Null if failed*/
+    Skips the chars of the num. returns pointer to the right pos. Null if failed
+ */
 char * skipNum(char *line);
 
 #endif

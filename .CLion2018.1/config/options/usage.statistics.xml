@@ -13,7 +13,7 @@
       <entry action="ChangesView.GroupBy" count="2" />
       <entry action="ChangesView.Move" count="1" />
       <entry action="CheckinFiles" count="3" />
-      <entry action="CheckinProject" count="9" />
+      <entry action="CheckinProject" count="10" />
       <entry action="ChooseDebugConfiguration" count="3" />
       <entry action="ChooseRunConfiguration" count="13" />
       <entry action="Clean" count="5" />
@@ -25,17 +25,17 @@
       <entry action="ContextHelp" count="1" />
       <entry action="CopyElement" count="1" />
       <entry action="Debug" count="117" />
-      <entry action="EditorBackSpace" count="7630" />
+      <entry action="EditorBackSpace" count="7678" />
       <entry action="EditorChooseLookupItem" count="279" />
       <entry action="EditorCodeBlockStart" count="1" />
-      <entry action="EditorCopy" count="754" />
+      <entry action="EditorCopy" count="757" />
       <entry action="EditorCut" count="192" />
-      <entry action="EditorDelete" count="571" />
+      <entry action="EditorDelete" count="573" />
       <entry action="EditorDeleteLine" count="5" />
-      <entry action="EditorDown" count="1212" />
+      <entry action="EditorDown" count="1213" />
       <entry action="EditorDownWithSelection" count="3" />
       <entry action="EditorDuplicate" count="4" />
-      <entry action="EditorEnter" count="1546" />
+      <entry action="EditorEnter" count="1549" />
       <entry action="EditorEscape" count="5" />
       <entry action="EditorLeft" count="3473" />
       <entry action="EditorLeftWithSelection" count="94" />
@@ -43,16 +43,16 @@
       <entry action="EditorLineStart" count="1" />
       <entry action="EditorNextWordWithSelection" count="1" />
       <entry action="EditorPageUp" count="1" />
-      <entry action="EditorPaste" count="892" />
+      <entry action="EditorPaste" count="893" />
       <entry action="EditorRight" count="5046" />
       <entry action="EditorRightWithSelection" count="163" />
       <entry action="EditorStartNewLine" count="1" />
-      <entry action="EditorTab" count="182" />
+      <entry action="EditorTab" count="186" />
       <entry action="EditorToggleInsertState" count="20" />
       <entry action="EditorToggleShowWhitespaces" count="2" />
       <entry action="EditorUp" count="700" />
-      <entry action="Find" count="140" />
-      <entry action="FindInPath" count="56" />
+      <entry action="Find" count="142" />
+      <entry action="FindInPath" count="60" />
       <entry action="FindNext" count="1" />
       <entry action="FindUsages" count="2" />
       <entry action="Generate" count="1" />
@@ -80,7 +80,7 @@
       <entry action="Resume" count="1266" />
       <entry action="Run" count="170" />
       <entry action="Runner.RestoreLayout" count="2" />
-      <entry action="SaveAll" count="714" />
+      <entry action="SaveAll" count="718" />
       <entry action="SearchEverywhere" count="14" />
       <entry action="Show.Current.Revision" count="1" />
       <entry action="ShowErrorDescription" count="2" />
@@ -96,7 +96,7 @@
       <entry action="ToggleFullScreen" count="1" />
       <entry action="ToggleLineBreakpoint" count="408" />
       <entry action="Valgrind" count="2" />
-      <entry action="Vcs.Push" count="20" />
+      <entry action="Vcs.Push" count="21" />
       <entry action="Vcs.QuickListPopupAction" count="1" />
       <entry action="Vcs.ShowTabbedFileHistory" count="1" />
       <entry action="Vcs.UpdateProject" count="2" />
@@ -133,7 +133,7 @@
     <feature id="refactoring.extractMethod" count="0" last-shown="0" last-used="0" shown-count="0" />
     <feature id="refactoring.introduceDefine" count="0" last-shown="0" last-used="0" shown-count="0" />
     <feature id="codeassists.surroundwith.expression" count="0" last-shown="0" last-used="0" shown-count="0" />
-    <feature id="editing.select.word" count="873" last-shown="0" last-used="1531766585528" shown-count="0" />
+    <feature id="editing.select.word" count="890" last-shown="0" last-used="1531770688376" shown-count="0" />
     <feature id="refactoring.extractSuperclass" count="0" last-shown="0" last-used="0" shown-count="0" />
     <feature id="navigation.goto.declaration" count="21" last-shown="0" last-used="1531691187860" shown-count="0" />
     <feature id="refactoring.inlineMethod" count="0" last-shown="0" last-used="0" shown-count="0" />
@@ -199,12 +199,12 @@
       <entry path="Run -&gt; Run" count="119" />
       <entry path="Run -&gt; Run Valgrind Memcheck" count="2" />
       <entry path="Run -&gt; Run..." count="13" />
-      <entry path="VCS -&gt; Commit" count="9" />
+      <entry path="VCS -&gt; Commit" count="10" />
       <entry path="VCS -&gt; Git -&gt; Commit File" count="3" />
       <entry path="VCS -&gt; Git -&gt; Compare with the Same Repository Version" count="3" />
       <entry path="VCS -&gt; Git -&gt; Merge Changes..." count="3" />
       <entry path="VCS -&gt; Git -&gt; Pull..." count="7" />
-      <entry path="VCS -&gt; Git -&gt; Push..." count="20" />
+      <entry path="VCS -&gt; Git -&gt; Push..." count="21" />
       <entry path="VCS -&gt; Git -&gt; Rebase my GitHub fork" count="1" />
       <entry path="VCS -&gt; Git -&gt; Rebase..." count="1" />
       <entry path="VCS -&gt; Git -&gt; Remotes..." count="1" />
@@ -226,32 +226,32 @@
   <component name="ShortcutsCollector">
     <counts>
       <entry shortcut="Alt+Insert" count="1" />
-      <entry shortcut="Backspace" count="8010" />
+      <entry shortcut="Backspace" count="8058" />
       <entry shortcut="Context Menu" count="2" />
       <entry shortcut="Ctrl+9" count="1" />
       <entry shortcut="Ctrl+A" count="3" />
       <entry shortcut="Ctrl+B" count="7" />
-      <entry shortcut="Ctrl+C" count="754" />
+      <entry shortcut="Ctrl+C" count="757" />
       <entry shortcut="Ctrl+D" count="4" />
-      <entry shortcut="Ctrl+F" count="156" />
+      <entry shortcut="Ctrl+F" count="158" />
       <entry shortcut="Ctrl+F1" count="2" />
       <entry shortcut="Ctrl+Open Bracket" count="1" />
-      <entry shortcut="Ctrl+S" count="712" />
+      <entry shortcut="Ctrl+S" count="716" />
       <entry shortcut="Ctrl+Shift+8" count="1" />
       <entry shortcut="Ctrl+Shift+9" count="1" />
-      <entry shortcut="Ctrl+Shift+F" count="70" />
+      <entry shortcut="Ctrl+Shift+F" count="79" />
       <entry shortcut="Ctrl+Shift+Right" count="1" />
       <entry shortcut="Ctrl+Slash" count="1" />
       <entry shortcut="Ctrl+Space" count="1" />
       <entry shortcut="Ctrl+T" count="1" />
-      <entry shortcut="Ctrl+V" count="1042" />
+      <entry shortcut="Ctrl+V" count="1043" />
       <entry shortcut="Ctrl+X" count="192" />
       <entry shortcut="Ctrl+Y" count="5" />
       <entry shortcut="Ctrl+Z" count="570" />
-      <entry shortcut="Delete" count="574" />
-      <entry shortcut="Down" count="1213" />
+      <entry shortcut="Delete" count="576" />
+      <entry shortcut="Down" count="1214" />
       <entry shortcut="End" count="6" />
-      <entry shortcut="Enter" count="2358" />
+      <entry shortcut="Enter" count="2361" />
       <entry shortcut="Escape" count="7" />
       <entry shortcut="F1" count="1" />
       <entry shortcut="F11" count="12" />
@@ -275,7 +275,7 @@
       <entry shortcut="Shift+Right" count="163" />
       <entry shortcut="Shift+Shift" count="14" />
       <entry shortcut="Space" count="1" />
-      <entry shortcut="Tab" count="183" />
+      <entry shortcut="Tab" count="187" />
       <entry shortcut="Up" count="700" />
     </counts>
   </component>
@@ -304,8 +304,9 @@
       <entry action="com.intellij.find.SearchTextArea$NewLineAction@unknown" count="1" />
       <entry action="com.intellij.find.SearchTextArea$ShowHistoryAction@unknown" count="1" />
       <entry action="com.intellij.find.editorHeaderActions.FindAllAction@EditorToolbar" count="8" />
-      <entry action="com.intellij.find.editorHeaderActions.NextOccurrenceAction@EditorToolbar" count="189" />
-      <entry action="com.intellij.find.editorHeaderActions.PrevOccurrenceAction@EditorToolbar" count="145" />
+      <entry action="com.intellij.find.editorHeaderActions.NextOccurrenceAction@EditorToolbar" count="190" />
+      <entry action="com.intellij.find.editorHeaderActions.PrevOccurrenceAction@EditorToolbar" count="147" />
+      <entry action="com.intellij.find.editorHeaderActions.ToggleMatchCase@EditorToolbar" count="1" />
       <entry action="com.intellij.ide.actions.NextOccurenceToolbarAction@DebuggerToolbar" count="2" />
       <entry action="com.intellij.notification.EventLogToolWindowFactory$EditNotificationSettings@EventLog" count="1" />
       <entry action="com.intellij.notification.EventLogToolWindowFactory$ToggleSoftWraps@EventLog" count="2" />

@@ -278,18 +278,6 @@ int processFileContextEntry(Line line, FileContext* FileContext)
 }
 
 /*
-	this method add the data to the fileContext
-*/
-void addDataToTable(FileContext *fileContext, int* data) {
-	if (fileContext->data_count == fileContext->data_capacity) {
-		fileContext->data_capacity = fileContext->data_capacity * 2;
-		fileContext->data_table = realloc(fileContext->data_table, sizeof(*(fileContext->data_table)) * fileContext->data_capacity);
-	}
-
-	fileContext->data_table[fileContext->data_count++] = *data;
-}
-
-/*
 	this method checks the after label and return boolean value
 */
 int checkAfterLabel(char afterLabel) {

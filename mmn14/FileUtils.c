@@ -185,6 +185,9 @@ void updateLabelLocations(FileContext* FileContext)
 	}
 }
 
+/*
+	return TRUE if exceed to the last extern print
+*/
 int ret(int i, FileContext *fileContext, int j, Extern *_extern) {
 	return i == fileContext->externData->externCount - 1 && j == _extern->locations_count - 1;
 }
@@ -329,17 +332,15 @@ void outputExternFile(FileContext* FileContext, char* file)
 		
 	fileFullName = malloc(strlen(file) + strlen(EXT_SUFFIX) + 1);
 	strcpy(fileFullName, file);
-	strcat(fileFullName, EXT_SUFFIX);
+	strcat(fileFullName, EXT_SUFFIX); /* add the suffix */
 	externFile = fopen(fileFullName, "w");
 	free(fileFullName);
 
 	for (i = 0; i < FileContext->externData->externCount; i++) {
 		Extern* _extern = &FileContext->externData->externTable[i];
-
-
 		for (j = 0; j < _extern->locations_count; j++)
 		{
-			fprintf(externFile, "%s %d", _extern->label,*_extern->locations);
+			fprintf(externFile, "%s %d", _extern->label,_extern->locations[j]);
 			if (!ret(i, FileContext, j, _extern)) {
 				fprintf(externFile, "\n");
 			}
