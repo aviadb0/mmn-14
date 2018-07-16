@@ -259,7 +259,7 @@ void outputObjectFile(FileContext* FileContext, char* file)
 		char wordBuffer[MAX_BASE2_INT_LEN + 1];
 
 		words[i] &= ((1 << MEM_WORD_BITS) - 1);  /* to zero all the bits after MEM_WORD_BITS (here 14) for printing */
-		fprintf(objectFile, "%c%d %s",'0',i + BASE_MEM_ADDR,convertIntToBase2(words[i], wordBuffer, TRUE));  /* print the word */
+		fprintf(objectFile, "%c%d %s",'0',i + BASE_MEM_ADDR,convertIntToBase2(words[i], wordBuffer));  /* print the word */
 		if (i < FileContext->instructionCounter + FileContext->data_count - 1) {
 			fprintf(objectFile, "\n");  /* add \n if not the end */
 		}

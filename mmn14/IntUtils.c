@@ -5,12 +5,11 @@
 
 
 /*
-
-	Util to convert an int with padded zeros to buffer in Base 2
-
+	This function converts the text to weird 2 base.
+	
 */
 
-char* convertIntToBase2(int value, char buf[MAX_BASE2_INT_LEN + 1], int padZeros)
+char* convertIntToBase2(int value, char buf[MAX_BASE2_INT_LEN + 1])
 
 {
 
@@ -28,17 +27,16 @@ char* convertIntToBase2(int value, char buf[MAX_BASE2_INT_LEN + 1], int padZeros
 
 	}
 
-	if (padZeros) {
+	
 
-		for (; i < MAX_BASE2_INT_LEN; )
-
+	for (; i < MAX_BASE2_INT_LEN; )
 		{
 
 			buf[i++] = BASE2_ZERO_VALUE;
 
 		}
 
-	}
+	
 
 	buf[i] = BACKSLACH_ZERO;
 
