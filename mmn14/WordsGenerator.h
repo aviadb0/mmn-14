@@ -89,9 +89,9 @@ this method generates jump operand label word based on the operand and the filec
 int generateJumpOperandWord(Operand* operand, FileContext* FileContext);
 
 /*
-	this method calculate a word based on an parameter anf filecontext when the parameter is represent memory
+	this method calculate a word based on an parameter and filecontext when the parameter is represent memory
 */
-int handleJumpMemoryParameterType(Operand *operand, FileContext *fileContext);
+int handleJumpMemoryParameterType(char *label, FileContext *fileContext);
 
 /*
 	this method generates a word from parameter1 in jump

@@ -48,11 +48,11 @@ int handleMemoryOperandType(Operand *operand, FileContext *fileContext) {
 /*
 	this method calculate a word based on an parameter anf filecontext when the parameter is represent memory
 */
-int handleJumpMemoryParameterType(Operand *operand, FileContext *fileContext) {
+int handleJumpMemoryParameterType(char *label, FileContext *fileContext) {
 	int word;
 	Symbol* symbol;
 
-	symbol = getSymbolFromFileContext(operand->data.jump_data.op1Label, fileContext);
+	symbol = getSymbolFromFileContext(label, fileContext);
 	if (symbol != NULL)
 	{  /* label is exist in symbol list - return label location */
 		word = symbol->location;
@@ -65,6 +65,8 @@ int handleJumpMemoryParameterType(Operand *operand, FileContext *fileContext) {
 	}
 	return word;
 }
+
+
 /*
 	general method for building a word from an Op struct
 */
@@ -165,9 +167,9 @@ void generateWordWithOperandAddressingForJump(int* words, FileContext* FileConte
 	}
 	else
 	{
-		words[*wordsIndex] = generateWordForJumpParameter1(operand, FileContext); /* generate param1 */
+		words[*wordsIndex] = generateWordForJumpParameter1(operand, FileContext); /* generate param1 word */
 		(*wordsIndex)++;
-		words[*wordsIndex] = generateWordForJumpParameter2(operand, FileContext); /* generate param2 */
+		words[*wordsIndex] = generateWordForJumpParameter2(operand, FileContext); /* generate param2 word*/
 	}
 	(*wordsIndex)++;
 }
@@ -177,11 +179,11 @@ void generateWordWithOperandAddressingForJump(int* words, FileContext* FileConte
 int generateWordForJumpParameter1(Operand *op, FileContext* FileContext)
 {
 	int word = 0;
-	if (op->data.jump_data.op1Type == isRegister) { /* param1 is regiser */
+	if (op->data.jump_data.op1Type == isRegister) { /* param1 is regitser */
 		word = op->data.jump_data.register1;
 		word = (word << (REGISTER_BIT_WIDTH + ARE_BIT_WIDTH)) + ARE_ABSOLUTE; /* A,E,R */
 	} else if(op->data.jump_data.op1Type == isLabel) {
-		word = handleJumpMemoryParameterType(op,FileContext);
+		word = handleJumpMemoryParameterType(op->data.jump_data.op1Label,FileContext);
 	} else if (op->data.jump_data.op1Type == isNumber) {
 		word = op->data.jump_data.num1;
 		word = (word << ARE_BIT_WIDTH) + ARE_ABSOLUTE; /* A,E,R */
@@ -195,11 +197,11 @@ int generateWordForJumpParameter1(Operand *op, FileContext* FileContext)
 int generateWordForJumpParameter2(Operand *op, FileContext* FileContext)
 {
 	int word = 0;
-	if (op->data.jump_data.op2Type == isRegister) { /* param2 is regiser */
+	if (op->data.jump_data.op2Type == isRegister) { /* param2 is register */
 		word = op->data.jump_data.register2;
-		word = (word << (REGISTER_BIT_WIDTH + ARE_BIT_WIDTH)) + ARE_ABSOLUTE; /* A,E,R */
+		word = (word << ARE_BIT_WIDTH) + ARE_ABSOLUTE; /* A,E,R */
 	} else if(op->data.jump_data.op2Type == isLabel) {
-		word = handleJumpMemoryParameterType(op , FileContext);
+		word = handleJumpMemoryParameterType(op->data.jump_data.op2Label , FileContext); /* generate word for label*/
 	} else if (op->data.jump_data.op2Type == isNumber) {
 		word = op->data.jump_data.num2;
 		word = (word << ARE_BIT_WIDTH) + ARE_ABSOLUTE; /* A,E,R */
