@@ -4,8 +4,8 @@
 #include "constants.h"
 
 /*
-	Util to convert an int with padded zeros to buffer in Base 2
+	Declaration of a function that converts the text to wierd base 2.
 */
-char* convertIntToBase2(int value, char buf[MAX_BASE2_INT_LEN + 1], int pad_zeroes);
+char* convertIntToBase2(int value, char buf[MAX_BASE2_INT_LEN + 1]);
 
 #endif
