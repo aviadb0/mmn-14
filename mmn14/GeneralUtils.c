@@ -81,7 +81,7 @@ int createOperation(Line line, FileContext* FileContext, int operationIndex, Op*
 	if (counter) {
 		Operand destination, source;
 		if (counter == 2) { /*operation with 2 operands - get source operand*/
-			if (!createOperationerand(line, &source)) {
+			if (!createOperand(line, &source, FALSE)) {
 				return FALSE;
 			}
 			if (!(source.type & operation.allowed_src_addressing)) { /*check the addressing type*/
@@ -92,7 +92,7 @@ int createOperation(Line line, FileContext* FileContext, int operationIndex, Op*
 			line.str = strchr(line.str, OPERAND_DELIM) + 1;
 			line.str = trimString(line.str);
 		}
-		if (!createOperationerand(line, &destination)) { /*get dest operand*/
+		if (!createOperand(line, &destination, TRUE)) { /*get dest operand*/
 			return FALSE;
 		}
 		if (!(destination.type & operation.allowed_dst_addressing)) { /*check the addressing type*/
@@ -333,7 +333,9 @@ void reverseString(char * str)
 	}
 }
 
-/* Skips the chars of the num (include the char of immediate). returns pointer to the right pos. Null if failed*/
+/*
+ * Skips the chars of the num (include the char of immediate). returns pointer to the right pos. Null if failed
+ */
 char *skipNum(char *line)
 {
 	int i=0, len = strlen(line);
@@ -347,8 +349,23 @@ char *skipNum(char *line)
 	}
 	return &line[i];
 }
-/*return true if num is between MINIMUM_NUMBER &  MAXIMUM_NUMBER */
+/*
+ * return true if num is between MINIMUM_NUMBER &  MAXIMUM_NUMBER
+ */
 int isNumInRange(int num)
 {
 	return (num > MINIMUM_NUMBER && num < MAXIMUM_NUMBER);
+}
+/*
+ * return true if in line there are chars that are not space (garbage chars).
+ */
+int checkLineForGarbageChars(char *line)
+{
+    int i=0;
+    while(line[i])
+    {
+        if(!isspace(line[i++]))
+            return TRUE;
+    }
+    return FALSE;
 }

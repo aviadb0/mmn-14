@@ -61,7 +61,7 @@ int parseAsmLine(Line line, FileContext* FileContext)
 	int operationIndex, doesLabelExistInLine = FALSE, doesErrorAccourd = FALSE;
 	char label[MAXIMUM_LABEL_LENGTH + 1];
 
-	if (isEmpryLine(line.str) || isCommentLine(line.str)) {
+	if (isEmptyLine(line.str) || isCommentLine(line.str)) {
 		return TRUE;
 	}
 	if (isLineStartWithLabel(line, label, &doesErrorAccourd)) {
@@ -256,78 +256,6 @@ int addLabelToFileContext(FileContext* FileContext, char label[MAXIMUM_LABEL_LEN
 }
 
 /*
-	this method process the line matrix and updates the FileContexts accordinly
-*/
-/* int processFileContextMatrix(Line line, FileContext* FileContext)
-{
-	int dimension1, dimension2, matrixSize, i;
-	char* seperator;
-	
-	if (!checkMatrixDim1(&line, &dimension1)) {
-		return FALSE;
-	}
-
-	if (!checkMatrixDim2(&line, &dimension2)) {
-		return FALSE;
-	}
-
-	line.str = strchr(line.str, MATRIX_DIMENSION_END) + 1;
-	matrixSize = dimension1 * dimension2;
-
-	for (i = 0; i < matrixSize; i++) {
-		int value;
-		if (!isLineStartsWithANumber(line.str, &value)) {
-			break;
-		} 
-		if (isValueInRange(value)) {
-			writeErrorOrWarningToLog(1, line.lineNum, "number %d not in range %d to %d", value, MAXIMUM_DATA_NUMBER, MAXIMUM_DATA_LENGTH);
-			return FALSE;
-		}
-		if (isDataCapacityEqualsToDataCount(FileContext)) {
-			FileContext->data_capacity *= 2;
-			FileContext->data_table = realloc(FileContext->data_table, sizeof(*(FileContext->data_table)) * FileContext->data_capacity);
-		}
-
-		FileContext->data_table[FileContext->data_count++] = value;
-		seperator = strchr(line.str, DATA_SYMBOL_START_SEPERATOR);
-		if (seperator != NULL) {
-			seperator++;
-			line.str = seperator;
-		}
-		else {
-			line.str = trimString(line.str);
-			if (*line.str == MINUS_CHAR || *line.str == PLUS_CHAR) {
-				line.str++;
-			}
-			while (isdigit(*line.str)) {
-				line.str++;
-			}
-		}
-	}
-
-
-	if (isEmpryLine(line.str)) {
-		int k;
-		for (k = i; k < matrixSize; k++)
-		{
-			if (isDataCapacityEqualsToDataCount(FileContext)) {
-				updateFileContext(FileContext);
-			}
-
-			FileContext->data_table[FileContext->data_count++] = DEFAULT_MATRIX_VALUE;
-		}
-		if (i < matrixSize) {
-			writeErrorOrWarningToLog(0, line.lineNum, "missing %d values for matrix, setting them to %d", matrixSize - i, DEFAULT_MATRIX_VALUE);
-		}
-
-		return TRUE;
-	}
-
-	writeErrorOrWarningToLog(1, line.lineNum, "invalid number in matrix");
-	return FALSE;
-} */
-
-/*
 	this method process the FileContext Entry
 */
 int processFileContextEntry(Line line, FileContext* FileContext)
@@ -394,9 +322,12 @@ Addressing getOperandType(Line line) {
 }
 
 /*
-	this method returns boolean TRUE if it successed to build an operand based on the line, False otherwise
+	this method returns boolean TRUE if it successed to
+ build an operand based on the line,
+ False otherwise.
+ Check for garbage chars after the last operand with the flag - checkForGarbage.
 */
-int createOperationerand(Line line, Operand* operand)
+int createOperand(Line line, Operand* operand, int checkForGarbage)
 {
 	Addressing type = getOperandType(line);
 	operand->type = type;
@@ -420,6 +351,16 @@ int createOperationerand(Line line, Operand* operand)
 			writeErrorOrWarningToLog(1, line.lineNum, "number %d not in range %d to %d", num, MINIMUM_NUMBER, MAXIMUM_NUMBER);
 			return FALSE;
 		}
+		if(checkForGarbage) /* flag is True, checking for garbage */
+		{
+			char *temp;
+			temp = skipNum(line.str);
+			if (checkLineForGarbageChars(temp)) /*check for garbage chars after the command*/
+			{
+				writeErrorOrWarningToLog(1, line.lineNum, "there are garbage chars after the command");
+				return FALSE;
+			}
+		}
 		operand->data.number = num;
 		return TRUE;
 	}
@@ -428,11 +369,27 @@ int createOperationerand(Line line, Operand* operand)
 		operand->data.reg[0] = line.str[0];
 		operand->data.reg[1] = line.str[1];
 		operand->data.reg[2] = '\0';
+		if(checkForGarbage) /* flag is True, checking for garbage */
+		{
+			if (checkLineForGarbageChars(&line.str[2])) /*check for garbage chars after the register*/
+			{
+				writeErrorOrWarningToLog(1, line.lineNum, "there are garbage chars after the command");
+				return FALSE;
+			}
+		}
 		return TRUE;
 	}
 	else if (type == memory)
 	{
 		tryGetLabel(line, operand->data.label);
+		if(checkForGarbage) /* flag is True, checking for garbage */
+		{
+			if (checkLineForGarbageChars(&line.str[strlen(operand->data.label)])) /*check for garbage chars after the label*/
+			{
+				writeErrorOrWarningToLog(1, line.lineNum, "there are garbage chars after the command");
+				return FALSE;
+			}
+		}
 		return TRUE;
 	}
 	else if (type == jump)
@@ -485,8 +442,13 @@ int createOperationerand(Line line, Operand* operand)
 		if (!isLineStartsWithRegister(temp_line) && !(temp_line[0] == IMMEDIATE_CHAR && isLineStartsWithANumber(temp_line+1,&num))
 			&& !(isLabelFlag =tryGetLabelCharEdition(temp_line,label)))/*check second operand - is num/register/label*/
 		{
-			writeErrorOrWarningToLog(1, line.lineNum, "invalid operand");
-			return FALSE;
+		    if (isspace(temp_line[0])) { /* space between parameters */
+                writeErrorOrWarningToLog(1, line.lineNum, "space disallowed between jump operators");
+		    }
+		    else {
+                writeErrorOrWarningToLog(1, line.lineNum, "invalid operand");
+                return FALSE;
+		    }
 		}
 		if (isLineStartsWithRegister(temp_line) && !isalnum(temp_line[REGISTER_LEN])) /*second operand is register*/
 		{
@@ -513,8 +475,17 @@ int createOperationerand(Line line, Operand* operand)
 		}
 		if(temp_line[0]!= JUMP_END) /*check if ')' after op2*/
 		{
-			writeErrorOrWarningToLog(1, line.lineNum, "wrong format of jump - no ')' after the second parameter");
+			writeErrorOrWarningToLog(1, line.lineNum, "wrong format of jump - no ')' right after the second parameter");
 			return FALSE;
+		}
+		temp_line++; /* for ')' */
+		if(checkForGarbage) /* flag is True, checking for garbage */
+		{
+			if (checkLineForGarbageChars(temp_line)) /*check for garbage chars after the ')' */
+			{
+				writeErrorOrWarningToLog(1, line.lineNum, "there are garbage chars after the command");
+				return FALSE;
+			}
 		}
 		return TRUE;
 	}

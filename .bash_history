@@ -490,3 +490,21 @@ git push mmn14
 git add -A 
 git add -mmn14
 git add -A 
+git status
+git commit -m "ver5"
+git push origin mmn14
+git push origin
+git push origin master
+git push mmn14 master
+make
+./assembler 1
+make
+./assembler 1
+make
+./assembler 1
+make
+./assembler 2
+./assembler 3
+./assembler 2
+make
+./assembler 2

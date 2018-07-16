@@ -17,7 +17,7 @@ int isCommentLine(char* line) {
 /*
 	check if the line is empty
 */
-int isEmpryLine(char* line)
+int isEmptyLine(char* line)
 {
 	char* first_nonspace = trimString(line);
 	if (*first_nonspace == BACKSLACH_ZERO)

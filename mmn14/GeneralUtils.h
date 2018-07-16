@@ -109,5 +109,9 @@ int isOpDestIsJump(Op *op);
 	return address type of the parameter in jump
 */
 int getAddressTypeJumpOp(int type);
+/*
+ * return true if in line there are chars that are not space (garbage chars).
+ */
+int checkLineForGarbageChars(char *line);
 
 #endif

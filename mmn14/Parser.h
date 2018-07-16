@@ -88,9 +88,12 @@ int processExtern(Line line, FileContext* FileContext);
 Addressing getOperandType(Line line);
 
 /*
-	this method returns boolean TRUE if it successed to build an operand based on the line, False otherwise
+	this method returns boolean TRUE if it successed to
+ build an operand based on the line,
+ False otherwise.
+ Check for garbage chars after the last operand with the flag - checkForGarbage.
 */
-int createOperationerand(Line line, Operand* operand);
+int createOperand(Line line, Operand* operand, int checkForGarbage);
 
 /*
 	this method add a label to the FileContext and updates it, return Boolean for success/failure

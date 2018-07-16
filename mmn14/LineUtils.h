@@ -16,7 +16,7 @@ int startsWithAMatrix(char* line);
 /*
 	check if the line is empty
 */
-int isEmpryLine(char* line);
+int isEmptyLine(char* line);
 
 /*
 	check if the line strats with a string

@@ -116,7 +116,6 @@ int validateUsedLabelsDeclared(FileContext* FileContext)
 int isLineStartsWithANumber(char* line, int* num)
 {
 	*num = atoi(line);
-
 	return *num != 0 || line[0] == '0' ? TRUE : FALSE;
 }
 
