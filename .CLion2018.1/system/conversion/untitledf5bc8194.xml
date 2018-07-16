@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<conversion>
+  <applied-converters>
+    <converter id="PythonTestConverterProvider" />
+    <converter id="js-debug-configuration-converter" />
+    <converter id="js-predefined-libraries-merged" />
+  </applied-converters>
+  <project-files>
+    <file path="/home/aviad/CLionProjects/untitled/.idea/codeStyles/Project.xml" timestamp="1522915884000" />
+    <file path="/home/aviad/CLionProjects/untitled/.idea/misc.xml" timestamp="1522915883000" />
+    <file path="/home/aviad/CLionProjects/untitled/.idea/modules.xml" timestamp="1522915679000" />
+    <file path="/home/aviad/CLionProjects/untitled/.idea/untitled.iml" timestamp="1522915883000" />
+    <file path="/home/aviad/CLionProjects/untitled/.idea/workspace.xml" timestamp="1523198662000" />
+  </project-files>
+</conversion>
+

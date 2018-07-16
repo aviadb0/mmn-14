@@ -1,0 +1,23 @@
+*****Welcome to myset program!*****
+
+The program contains 6 groups of numbers (SETA, SETB, etc.), from 0 to 127.
+You can write commands to control the groups.
+The commands are:
+***read_set SETA - add to the group SETA the numbers (separated by one comma) after the command (terminated by -1). Max numbers: 80
+***print_set SETA - print the numbers in the group SETA.
+***union_set SETA,SETB,SETC - put the union of SETA & SETB in SETC.
+***intersect_set SETA,SETB,SETC - put the intersect of SETA & SETB in SETC.
+***sub_set SETA,SETB,SETC - put the nums of SETA that doesn't in SETB in SETC.
+***stop - stop the program.
+
+Multiple commas or comma between the command and parameter are disallowed.
+Extra text after the end of command is disallowed.
+The limit of every line is 80 chars.
+
+~
+read_set 00000000000000000000000000000000000000000000000000000000000000000000000
+Error! The line you entered is too long. The limit is 80 chars.
+
+~
+~
+stop

@@ -1,0 +1,92 @@
+<application>
+  <component name="RecentDirectoryProjectsManager">
+    <option name="recentPaths">
+      <list>
+        <option value="$USER_HOME$/mmn14" />
+        <option value="$USER_HOME$/Desktop/mmn14" />
+        <option value="$USER_HOME$/Desktop/mmn 22" />
+        <option value="$USER_HOME$/Desktop/mmn12" />
+        <option value="$USER_HOME$/CLionProjects/untitled" />
+        <option value="/tmp/abc.c" />
+      </list>
+    </option>
+    <option name="openPaths">
+      <list>
+        <option value="$USER_HOME$/mmn14" />
+      </list>
+    </option>
+    <option name="lastPath" value="$USER_HOME$/mmn14" />
+    <option name="pid" value="" />
+    <option name="additionalInfo">
+      <map>
+        <entry key="$USER_HOME$/CLionProjects/untitled">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="CL-181.4445.84" />
+              <option name="productionCode" value="CL" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1524767039198" />
+              <option name="buildTimestamp" value="1523366596975" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Desktop/mmn 22">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="CL-181.5281.33" />
+              <option name="productionCode" value="CL" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1531158524952" />
+              <option name="buildTimestamp" value="1528992328930" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Desktop/mmn12">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="CL-181.4668.70" />
+              <option name="productionCode" value="CL" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1526588380445" />
+              <option name="buildTimestamp" value="1524590355420" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Desktop/mmn14">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="CL-181.5281.33" />
+              <option name="productionCode" value="CL" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1531331694207" />
+              <option name="buildTimestamp" value="1528992311480" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/mmn14">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="CL-181.5540.8" />
+              <option name="productionCode" value="CL" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1531749400230" />
+              <option name="buildTimestamp" value="1531332844820" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="/tmp/abc.c">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="CL-181.4203.549" />
+              <option name="productionCode" value="CL" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1522878229904" />
+              <option name="buildTimestamp" value="1522089484460" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="lastProjectLocation" value="$USER_HOME$/Desktop" />
+  </component>
+</application>

@@ -1,0 +1,101 @@
+*****Welcome to myset program!*****
+
+The program contains 6 groups of numbers (SETA, SETB, etc.), from 0 to 127.
+You can write commands to control the groups.
+The commands are:
+***read_set SETA - add to the group SETA the numbers (separated by one comma) after the command (terminated by -1). Max numbers: 80
+***print_set SETA - print the numbers in the group SETA.
+***union_set SETA,SETB,SETC - put the union of SETA & SETB in SETC.
+***intersect_set SETA,SETB,SETC - put the intersect of SETA & SETB in SETC.
+***sub_set SETA,SETB,SETC - put the nums of SETA that doesn't in SETB in SETC.
+***stop - stop the program.
+
+Multiple commas or comma between the command and parameter are disallowed.
+Extra text after the end of command is disallowed.
+The limit of every line is 80 chars.
+
+~
+read_set SETB ,0, 5, 11, 11, 11, 13, 15, -1
+
+~
+read_set SETC , 100, 50, 12, 11, 127, 5, -1
+
+~
+union_set SETB,SETC, SETA
+
+~
+intersect_set SETB,SETC,SETE
+
+~
+~
+sub_set SETB,SETC,SETD
+
+~
+~
+read_set SETA   ,   -1
+
+~
+print_set SETA
+
+The set members of SETA are:
+0
+5
+11
+12
+13
+15
+50
+100
+127
+
+~
+print_set SETB
+
+The set members of SETB are:
+0
+5
+11
+13
+15
+
+~
+~
+~
+print_set SETC
+
+The set members of SETC are:
+5
+11
+12
+50
+100
+127
+
+~
+print_set SETD
+
+The set members of SETD are:
+0
+13
+15
+
+~
+print_set SETE
+
+The set members of SETE are:
+5
+11
+
+~
+print_set SETF
+
+The set is empty
+
+~
+~
+~
+~
+~
+~
+~
+stop

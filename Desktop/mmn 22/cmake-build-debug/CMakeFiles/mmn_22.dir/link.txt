@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/mmn_22.dir/main.c.o CMakeFiles/mmn_22.dir/set.c.o  -o mmn_22 

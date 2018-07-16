@@ -1,0 +1,3 @@
+/home/aviad/Desktop/mmn12/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/aviad/Desktop/mmn12/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/aviad/Desktop/mmn12/cmake-build-debug/CMakeFiles/mmn12.dir

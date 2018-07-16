@@ -1,0 +1,15 @@
+**********Welcome to my_bcmp program!**********
+
+The program gets a string, 2 indexes & a number (len),
+and checks if the memory segments from each index are equals (len bytes from any index).
+
+Please insert the number of bytes to check.
+The length must be an integer and non-negative,
+and the mximum bytes are 512 (minus each index):The len: 10.000000
+
+Please insert the first index.
+The index must be an integer an non-negative:The first index: 3.000000
+
+Please insert the second index.
+The index must be an integer an non-negative:
+Error! This is not a valid number.

@@ -1,0 +1,43 @@
+<application>
+  <component name="DimensionService">
+    <location key="FileChooserDialogImpl.0.0.1280.800" x="456" y="130" />
+    <location key="WELCOME_SCREEN.0.0.1280.800" x="673" y="376" />
+    <location key="com.intellij.ide.util.TipDialog.0.0.1280.800" x="296" y="236" />
+    <location key="#com.intellij.execution.impl.EditConfigurationsDialog.0.0.1280.800" x="131" y="66" />
+    <location key="#Notifications.0.0.1280.800" x="425" y="127" />
+    <location key="SettingsEditor.0.0.1280.800" x="67" y="27" />
+    <location key="#Build_All.0.0.1280.800" x="390" y="174" />
+    <location key="SettingsEditor.0.0.1280.800@120dpi" x="138" y="55" />
+    <location key="find.popup.0.0.1280.800" x="366" y="27" />
+    <location key="ProcessPopupWindow.0.0.1280.800" x="878" y="565" />
+    <location key="Vcs.Push.Dialog.0.0.1280.800" x="353" y="120" />
+    <location key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate.0.0.1280.800" x="386" y="301" />
+    <location key="git4idea.rebase.GitRebaseDialog.0.0.1280.800" x="477" y="271" />
+    <location key="CommitChangelistDialog2.0.0.1280.800" x="258" y="27" />
+    <location key="git4idea.merge.GitMergeDialog.0.0.1280.800" x="433" y="197" />
+    <location key="git4idea.merge.GitPullDialog.0.0.1280.800" x="392" y="147" />
+    <location key="#com.intellij.fileTypes.FileTypeChooser.0.0.1280.800" x="375" y="209" />
+    <size key="FileChooserDialogImpl.0.0.1280.800" width="424" height="492" />
+    <size key="#Notifications.0.0.1280.800" width="486" height="571" />
+    <size key="SettingsEditor.0.0.1280.800" width="1194" height="773" />
+    <size key="#Build_All.0.0.1280.800" width="556" height="477" />
+    <size key="GridCell.Tab.0.left.0.0.1280.800" width="1190" height="227" />
+    <size key="GridCell.Tab.0.center.0.0.1280.800" width="1190" height="227" />
+    <size key="GridCell.Tab.0.right.0.0.1280.800" width="1190" height="227" />
+    <size key="GridCell.Tab.0.bottom.0.0.1280.800" width="1190" height="227" />
+    <size key="GridCell.Tab.1.left.0.0.1280.800" width="1190" height="227" />
+    <size key="GridCell.Tab.1.center.0.0.1280.800" width="1190" height="227" />
+    <size key="GridCell.Tab.1.right.0.0.1280.800" width="1190" height="227" />
+    <size key="GridCell.Tab.1.bottom.0.0.1280.800" width="1190" height="227" />
+    <size key="find.popup.0.0.1280.800" width="722" height="775" />
+    <size key="ImportCMakeProjectWizard.0.0.1280.800" width="640" height="480" />
+    <size key="ProcessPopupWindow.0.0.1280.800" width="400" height="259" />
+    <size key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate.0.0.1280.800" width="564" height="223" />
+    <size key="git4idea.rebase.GitRebaseDialog.0.0.1280.800" width="382" height="283" />
+    <size key="CommitChangelistDialog2.0.0.1280.800" width="821" height="773" />
+    <size key="git4idea.merge.GitMergeDialog.0.0.1280.800" width="471" height="431" />
+    <size key="git4idea.merge.GitPullDialog.0.0.1280.800" width="626" height="431" />
+    <size key="DebuggerActiveHint.0.0.1280.800" width="447" height="474" />
+    <size key="#com.intellij.fileTypes.FileTypeChooser.0.0.1280.800" width="577" height="406" />
+  </component>
+</application>

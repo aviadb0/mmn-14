@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<conversion>
+  <applied-converters>
+    <converter id="PythonTestConverterProvider" />
+    <converter id="js-debug-configuration-converter" />
+    <converter id="js-predefined-libraries-merged" />
+  </applied-converters>
+  <project-files>
+    <file path="/home/aviad/Desktop/mmn12/.idea/codeStyles/Project.xml" timestamp="1524768203000" />
+    <file path="/home/aviad/Desktop/mmn12/.idea/misc.xml" timestamp="1524768203000" />
+    <file path="/home/aviad/Desktop/mmn12/.idea/mmn12.iml" timestamp="1524768203000" />
+    <file path="/home/aviad/Desktop/mmn12/.idea/modules.xml" timestamp="1524767040000" />
+    <file path="/home/aviad/Desktop/mmn12/.idea/workspace.xml" timestamp="1526587985000" />
+  </project-files>
+</conversion>
+

@@ -1,0 +1,22 @@
+**********Welcome to my_bcmp program!**********
+
+The program gets a string, 2 indexes & a number (len),
+and checks if the memory segments from each index are equals (len bytes from any index).
+
+Please insert the number of bytes to check.
+The length must be an integer and non-negative,
+and the mximum bytes are 512 (minus each index):
+
+Please insert the first index.
+The index must be an integer an non-negative:
+
+Please insert the second index.
+The index must be an integer an non-negative:
+
+Please insert a string (Max length = 512):
+The values you entered:
+The string: asadfanfabbf anfqam famaaakcasksc a      fkafkak aka skf kfakkak a kakaak aakfa;'fka' ka 'ak'aka'k'fakf';akf'a ak's'a;as' kas' k'; k'aks'fak' ak ;'ak ;a'k ;aka';askf ;'aka;' ka'kdcbm dkb mmfmb ;lkbsm kb'mmsfd'mfs'l;gsd;gks';gs';gks';kgs';gk;'lskg';lsdkg; aksotkrpkrsp gkrspo gkrspkg ropskgroskgokgprskgp sgl;m, g;lf,v;ls,v;sldfkds'kgd'gks'ka'\a\hka\a\khakass'k\k\akha\kh\kha\hk\akh\'akh'\ahk\dfl'lg';flgfd;'h,mfkmhmdkhfmkfdmkhfmhkitriteitier[p]wot]wrwrywroeyw][oy]w[or]p[l';yl;'\l\sd;lyf\sdly[psd[py]dsd[]fohd[]o
+The First index: 3.
+The second index: 7.
+The length is: 1
+The memory segments are not equals.

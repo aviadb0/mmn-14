@@ -1,0 +1,85 @@
+*****Welcome to myset program!*****
+
+The program contains 6 groups of numbers (SETA, SETB, etc.), from 0 to 127.
+You can write commands to control the groups.
+The commands are:
+***read_set SETA - add to the group SETA the numbers (separated by one comma) after the command (terminated by -1). Max numbers: 80
+***print_set SETA - print the numbers in the group SETA.
+***union_set SETA,SETB,SETC - put the union of SETA & SETB in SETC.
+***intersect_set SETA,SETB,SETC - put the intersect of SETA & SETB in SETC.
+***sub_set SETA,SETB,SETC - put the nums of SETA that doesn't in SETB in SETC.
+***stop - stop the program.
+
+Multiple commas or comma between the command and parameter are disallowed.
+Extra text after the end of command is disallowed.
+The limit of every line is 80 chars.
+
+~
+read_set SETA, 45, 23, 6, 7, 4, 3, 75 ,45, 34,
+Error! List of set members is not terminated correctly
+
+~
+read_set SETB, 5, 4, 3, 2, 78, 45, 43, -1,2
+Error! Extraneous text after end of command
+
+~
+read_set SETC,100,105,101,103 104,-1
+Error! Missing comma
+
+~
+read_set SETX,100,105,101,103 104,-1
+Error! Undefined set name
+
+~
+read_set SETB, 5, 4, -3, 2, 78, 45, 43, -1,2
+Error! Invalid set number - out of range
+
+~
+read_set SETE, 5, 4, 3, 2, 78, 45, 4.3, -1,2
+Error! Invalid set number - not an integer
+
+~
+print_set SETA ,
+Error! Extraneous text after end of command
+
+~
+print_set ,SETB
+Error! Illegal comma
+
+~
+print_set
+Error! Missing parameter
+
+~
+union_set SETA SETB, SETD
+Error! Missing comma
+
+~
+intersect_set SETA, SETB SETE
+Error! Missing comma
+
+~
+sub_set SETA, SETB, , SETF
+Error! Multiple consecutive commas
+
+~
+intersect_set SETA, SETC,
+Error! Missing parameter
+
+~
+intersect_set
+Error! Missing parameter
+
+~
+do_set SETA, -1
+Error! Undefined command name
+
+~
+stop 23
+Error! Extraneous text after end of command
+
+~
+stop ,
+Error! Extraneous text after end of command
+
+~
