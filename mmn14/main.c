@@ -5,7 +5,9 @@
  * This is a solution for maman 14, in the course "lab in system
  * programming", semester 2018B
  *
- * Written by: I. Moti David ID 204399422 & II. Avihad 
+ * Written by:
+ *		I. Moti David ID 204399422 
+ *		II. Avihad 
  * 
  *
  * July 2018
