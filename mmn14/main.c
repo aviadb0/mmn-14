@@ -1,4 +1,19 @@
-﻿#include <stdio.h>
+/*
+ * This program is an assembler, which compiles files written in assembly
+ * to machine code represented in weird 2 base.
+ *
+ * This is a solution for maman 14, in the course "lab in system
+ * programming", semester 2018B
+ *
+ * Written by: I. Moti David ID 204399422 & II. Avihad 
+ * 
+ *
+ * July 2018
+ */
+
+
+
+#include <stdio.h>
 #include <stdlib.h>
 
 #include "FileUtils.h"
