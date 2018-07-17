@@ -21,38 +21,6 @@ int getIsLineStartsWithOpCondition(char *line, int i) {
 }
 
 /*
-	check if the line strats with a matrix
-*/
-int isMatrixStart(char *line, int* num) {
-	return line[0] == MATRIX_DIMENSION_START && isLineStartsWithANumber(line + 1, num);
-}
-
-
-/*
-	check if the line starts with matrix dimension
-*/
-int isLineStartWithMatrixDim(char* line, int* num)
-{
-        char* endOfDimension;
-	if (!isMatrixStart(line,num)) {
-		return FALSE;
-	}
-
-	endOfDimension = strchr(line, MATRIX_DIMENSION_END);
-	if (endOfDimension == NULL) {
-		return FALSE;
-	}
-	
-	while (++line != endOfDimension)
-	{
-		if (checkLineEndBackslashT(line))
-			return FALSE;
-	}
-	return TRUE;
-
-}
-
-/*
 	check if the source and the destination are regist
 */
 int isOpSourceAndDestAreRegist(Op *op) {
