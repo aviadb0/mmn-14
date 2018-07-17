@@ -15,11 +15,6 @@ int parseLineStringStrater(int doesLabelExistInLine, FileContext *FileContext, c
 int parseLineDataStrater(int doesLabelExistInLine, FileContext *FileContext, char* label, Line line);
 
 /*
-	this method parse a line matrix starter
-*/
-int parseLineMatrixStrater(int doesLabelExistInLine, FileContext *FileContext, char* label, Line line);
-
-/*
 	this method parse the asm line (and uses many methods to parse correctly)
 	parse line, returns TRUE if success to parse the line to asm and return FALSE if not
 */
@@ -39,21 +34,6 @@ int isDataCapacityEqualsToDataCount(FileContext *fileContext);
 	this method process the line data and updates the FileContexts accordinly
 */
 int processLineData(Line line, FileContext* FileContext);
-
-/*
-	this method process the line matrix and updates the FileContexts accordinly
-*/
-int processFileContextMatrix(Line line, FileContext* FileContext);
-
-/*
-	this method check the dim1 of the matrix
-*/
-int checkMatrixDim1(Line *line, int *dimension1);
-
-/*
-	this method check the dim2 of the matrix
-*/
-int checkMatrixDim2(Line *line, int *dimension2);
 
 /*
 	this method checks if the value is in range of data member length
