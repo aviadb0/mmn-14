@@ -78,10 +78,6 @@
 
 
 
-#define BASE4_FIRST_TWO_DIGIT 4
-
-
-
 #define BASE_MEM_ADDR 100
 
 
