@@ -3,8 +3,8 @@
 
 #include "constants.h"
 
-/*
-	Addressing struct gives as the relative command op 
+
+	/* Addressing struct gives as the relative command op  */
 typedef enum Addressing {
 	none = 0,
 	immediate = 1 << 0,
