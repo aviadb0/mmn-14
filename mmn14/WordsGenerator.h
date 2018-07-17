@@ -59,7 +59,7 @@ this method calculate a word based on an operand anf filecontext when the operan
 int handleRegistOperandType(Operand *operand, OperandType type);
 
 /*
-	creating memory word for non matrix
+	creating memory word for non jump
 */
 int generateWordForNonJumpOp(Operand* operand, FileContext* FileContext, OperandType type);
 
