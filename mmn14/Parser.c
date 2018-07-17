@@ -20,14 +20,6 @@ int parseLineDataStrater(int doesLabelExistInLine, FileContext *FileContext, cha
 	}
 	return TRUE;
 }
-/*
-int parseLineMatrixStrater(int doesLabelExistInLine, FileContext *FileContext, char* label, Line line) {
-	if ((doesLabelExistInLine && !addLabelToFileContext(FileContext, label, data, line.lineNum)) || !processFileContextMatrix(line, FileContext)) {
-		return FALSE; 
-	}
-
-	return TRUE;
-}*/
 
 /*
 	this method process the extern part line and updates the FileContext
@@ -193,38 +185,6 @@ int processLineData(Line line, FileContext* FileContext)
 	} while ((line.str = strchr(line.str, DATA_SYMBOL_START_SEPERATOR)));
 	return TRUE;
 }
-
-/*
-	this method check the dim1 of the matrix
-*/
-
-/*int checkMatrixDim1(Line *line, int *dimension1) {
-	line->str += strlen(MATRIX_SYMBOL_START);
-	line->str = trimString(line->str);
-
-	if (!isLineStartWithMatrixDim(line->str, dimension1)) {
-		writeErrorOrWarningToLog(1, line->lineNum, "matrix invalid dimension 1");
-		return FALSE;
-	}
-
-	return TRUE;
-}*/
-
-/*
-	this method check the dim2 of the matrix
-*/
-/*int checkMatrixDim2(Line *line, int *dimension2) {
-	line->str = strchr(line->str, MATRIX_DIMENSION_END) + 1;
-	line->str = trimString(line->str);
-
-	if (!isLineStartWithMatrixDim(line->str, dimension2))
-	{
-		writeErrorOrWarningToLog(1, line->lineNum, "matrix invalid dimension 2");
-		return FALSE;
-	}
-
-	return TRUE;
-}*/
 
 /*
 	this method checks if the value is in range of data member length
