@@ -40,7 +40,7 @@ int isOpMemoryAndLabelDontExist(Operand *op, FileContext *fileContext);
 /*
 	is line exists
 */
-int lineExists(char* lineContent, FILE *file);
+int newLineExists(char* lineContent, FILE *file);
 
 /*
 	init FileContext
@@ -92,6 +92,11 @@ int validateUsedLabelsDeclared(FileContext* FileContext);
 	check if the line starts with a register
 */
 int isLineStartsWithRegister(char* line);
+
+/*
+this method returns TRUE if the parameters of jump type and label dont exist in fileContext
+*/
+int isOpMemoryAndLabelDontExistForJumpParametrs(Operand *op, FileContext *fileContext);
 
 #endif
  

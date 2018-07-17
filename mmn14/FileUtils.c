@@ -16,7 +16,7 @@
 /*
 	check if the line exists
 */
-int lineExists(char* lineContent, FILE *file) {
+int newLineExists(char* lineContent, FILE *file) {
 	if (strchr(lineContent, ENTER) == NULL && !feof(file)) {
 		return TRUE;
 	}
@@ -66,14 +66,28 @@ int isOpMemoryAndLabelDontExist(Operand *op, FileContext *fileContext) {
 	if(op->type == jump) { /* check if the label exist for jump */
         if(!isLabelOrExternExistInFileContext(op->data.jump_data.label, fileContext)) /* check first label */
             return TRUE;
-        if(op->data.jump_data.op1Type == isLabel &&
-                !isLabelOrExternExistInFileContext(op->data.jump_data.op1Label, fileContext))/* check first parameter */
-            return TRUE;
-        if(op->data.jump_data.op2Type == isLabel &&
-           !isLabelOrExternExistInFileContext(op->data.jump_data.op2Label, fileContext))/* check first parameter */
-            return TRUE;
     }
     return FALSE;
+}
+/*
+this method returns TRUE if the parameters of jump type and label dont exist in fileContext
+*/
+int isOpMemoryAndLabelDontExistForJumpParametrs(Operand *op, FileContext *fileContext)
+{
+	int error = FALSE;
+	if(op->data.jump_data.op1Type == isLabel &&
+	   !isLabelOrExternExistInFileContext(op->data.jump_data.op1Label, fileContext))/* check first parameter */
+	{
+		writeErrorOrWarningToLogWithNoLineNumber(2, "label '%s' used but not declared", op->data.jump_data.op1Label);
+		error = TRUE;
+	}
+	if(op->data.jump_data.op2Type == isLabel &&
+	   !isLabelOrExternExistInFileContext(op->data.jump_data.op2Label, fileContext))/* check first parameter */
+	{
+		writeErrorOrWarningToLogWithNoLineNumber(2, "label '%s' used but not declared", op->data.jump_data.op2Label);
+		error = TRUE;
+	}
+	return error;
 }
 
 /*
@@ -93,6 +107,10 @@ int validateUsedLabelsDeclared(FileContext* FileContext)
 			if (isOpMemoryAndLabelDontExist(&(op->dst),FileContext)) { /* check for labels and check if declared */
 				writeErrorOrWarningToLogWithNoLineNumber(2, "label '%s' used but not declared", op->dst.data.label);
 				existsError = TRUE;
+			}
+			if (op->dst.type == jump) /* if jump check the parameters */
+			{
+				existsError = isOpMemoryAndLabelDontExistForJumpParametrs(&(op->dst),FileContext);
 			}
 		}
 		else { /* 2 operands */
@@ -292,13 +310,21 @@ void runAsmFile(FILE *file, char *filePath)
 	FileContext FileContext;
 	initFileContext(&FileContext);
 
-	/* going thruoh the file */
+	/* going though the file */
 	while (thereIsReadableLine(tempLine, file)) {
+	    if(strchr(tempLine, ENTER) == NULL)
+        {
+        }
 		tempPtr = trimString(tempLine);
 		finalLine.str = tempPtr;
 		finalLine.lineNum = ++lineNumber;
-		if (lineExists(tempLine, file)) { /* newline is not exist in line*/
-			while (fgetc(file) != EOF);
+		if (newLineExists(tempLine, file))  /* line longer than MAX_LINE chars */
+		{
+			int c;
+			writeErrorOrWarningToLog(1, lineNumber, "line longer than %d chars", MAX_LINE);
+			lineError = TRUE;
+			while ((c = fgetc(file)) != EOF && c != ENTER);
+			continue;
 		}
 		/* if hit, there is an error in the line! */
 		if (lineError)

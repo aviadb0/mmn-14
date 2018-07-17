@@ -1,5 +1,4 @@
 #include <string.h>
-
 #include "EntryUtils.h"
 #include "LogUtils.h"
 
@@ -7,9 +6,9 @@
 	this method calculate the relative location of the symbol in the filecontext.
  	return the memory location.
 */
-int calcRelativeLocation(Symbol *symbol, FileContext *fileContext) {
+int calcRelativeLocation(Symbol *symbol, FileContext *fileContext)
+{
 	int temp;
-
 	if (symbol->type == code) {  /* symbol is code - symbol contains the IC location */
 		temp = symbol->location;
 	}

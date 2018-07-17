@@ -12,7 +12,6 @@
 #include "Parser.h"
 #include "OperationData.h"
 
-
 /*
 	is line start with condition
 */
@@ -108,13 +107,6 @@ char* getAddressNameFromAddress(Addressing addr)
 }
 
 /*
-	check if the line end with backslash t
-*/
-int checkLineEndBackslashT(char *line) {
-	return !isdigit(*line) && !(*line == ' ' || *line == BACKSLASH_T);
-}
-
-/*
 	trying get label
 */
 int tryGetLabel(Line line, char label[MAXIMUM_LABEL_LENGTH + 1])
@@ -133,9 +125,11 @@ int tryGetLabel(Line line, char label[MAXIMUM_LABEL_LENGTH + 1])
 	if (label_len > MAXIMUM_LABEL_LENGTH) {
 		return FALSE;
 	}
-
 	strncpy(label, origLine, label_len);
 	label[label_len] = BACKSLACH_ZERO;
+	if(checkLabelForSavedWords(label)){ /* check for saved words */
+		return FALSE;
+	}
 	return TRUE;
 }
 
@@ -143,23 +137,22 @@ int tryGetLabel(Line line, char label[MAXIMUM_LABEL_LENGTH + 1])
 /*
 	trying get label - the char * edition (no Line in parameters for immediate use)
 */
-int tryGetLabelCharEdition(char * line, char label[MAXIMUM_LABEL_LENGTH + 1])
+int tryGetLabelForJumpParameters(char * line, char label[MAXIMUM_LABEL_LENGTH + 1])
 {
 	char* origLine = line;
 	int label_len = 0;
 
-	if (!isalpha(*line)) {
+	if (!isalpha(*line)) { /*first char should be a letter */
 		return FALSE;
 	}
 
-	while (*line && isalnum(*line)) {
+	while (*line && isalnum(*line)) { /* include all the letters and nums */
 		label_len++;
 		line++;
 	}
 	if (label_len > MAXIMUM_LABEL_LENGTH) {
 		return FALSE;
 	}
-
 	strncpy(label, origLine, label_len);
 	label[label_len] = BACKSLACH_ZERO;
 	return TRUE;
@@ -196,14 +189,14 @@ int calcOperationBinarySize(Op* op)
 }
 
 /*
-	returns TRUE if the line strats with Op
+	returns TRUE if the line starts with Op
 */
 int isLineStartsWithOp(char* line, int* operationIndex)
 {
 	char op[MAX_OP_LEN + 1];
 	int i;
 
-	initOp(line, op);
+	initOp(line, op); /* initialized the op */
 
 	for (i = 0; i < operationsCounter; i++)
 	{
@@ -231,7 +224,7 @@ void addLocationToExtern(Extern* _extern, int location)
 }
 
 /*
-	remove all spaces
+	skip all spaces
 */
 char* trimString(char* str)
 {
@@ -336,4 +329,30 @@ int checkLineForGarbageChars(char *line)
             return TRUE;
     }
     return FALSE;
+}
+/*
+ * return true if the label is a saved word (register or operation)
+ */
+int checkLabelForSavedWords(char *label)
+{
+	if(isLineStartsWithRegister(label)) /*check for register */
+		return TRUE;
+	if(checkIsOperation(label)) /*check for register */
+		return TRUE;
+	return FALSE;
+}
+
+/*
+ * return true if the label is an operation
+ */
+int checkIsOperation(char *label)
+{
+	int i;
+	for (i = 0; i < operationsCounter; i++) /* check for operation */
+	{
+		if (!strcmp(label, operationsTable[i].name)) {
+			return TRUE;
+		}
+	}
+	return FALSE;
 }

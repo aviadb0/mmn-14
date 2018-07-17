@@ -6,6 +6,7 @@
 
 	/* Addressing struct gives as the relative command op  */
 typedef enum Addressing {
+	error = -1,
 	none = 0,
 	immediate = 1 << 0,
 	jump = 1 << 2,

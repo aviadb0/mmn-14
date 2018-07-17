@@ -19,14 +19,14 @@ int tryGetLabel(Line line, char label[MAXIMUM_LABEL_LENGTH + 1]);
 /*
 	trying get label - the char * edition (no Line in parameters for immediate use)
 */
-int tryGetLabelCharEdition(char * line, char label[MAXIMUM_LABEL_LENGTH + 1]);
+int tryGetLabelForJumpParameters(char * line, char label[MAXIMUM_LABEL_LENGTH + 1]);
 /*
 	init the op struct
 */
 void initOp(char *line, char* op);
 
 /*
-	returns TRUE if the line strats with Op
+	returns TRUE if the line starts with Op
 */
 int isLineStartsWithOp(char* line, int* operationIndex);
 
@@ -35,10 +35,6 @@ int isLineStartsWithOp(char* line, int* operationIndex);
 */
 int getIsLineStartsWithOpCondition(char *line, int i);
 
-/*
-	check if the line end with backslash t
-*/
-int checkLineEndBackslashT(char *line);
 
 /*
 	check if the source and the destination are regist
@@ -93,5 +89,15 @@ int getAddressTypeJumpOp(int type);
  * return true if in line there are chars that are not space (garbage chars).
  */
 int checkLineForGarbageChars(char *line);
+
+/*
+ * return true if the label is a saved word (register or operation)
+ */
+int checkLabelForSavedWords(char *label);
+
+/*
+ * return true if the label is an operation
+ */
+int checkIsOperation(char *label);
 
 #endif

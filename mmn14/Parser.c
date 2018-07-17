@@ -281,14 +281,17 @@ Addressing getOperandType(Line line) {
 		return regist;
 	}
 	if (tryGetLabel(line, label)) {
-		char afterLabel = line.str[strlen(label)];
-		if (afterLabel == JUMP_START) {
+		char *afterLabel = &line.str[strlen(label)];
+		afterLabel = trimString(afterLabel);
+		if (afterLabel[0] == JUMP_START) {
 			return jump;
 		}
-		else if (checkAfterLabel(afterLabel)) {
+		else if (checkAfterLabel(line.str[strlen(label)])) {
 			return memory;
 		}
 	}
+	if(checkLabelForSavedWords(label)) /* label is saved word */
+		return error;
 
 	return none;
 }
@@ -306,6 +309,10 @@ int createOperand(Line line, Operand* operand, int checkForGarbage)
 	if (type == none)
 	{
 		writeErrorOrWarningToLog(1,line.lineNum, "invalid addressing type");
+		return FALSE;
+	}
+	if (type == error) { /* used saved word as memory */
+		writeErrorOrWarningToLog(1,line.lineNum, "Cannot use saved words (registers and operations) for labels");
 		return FALSE;
 	}
 	if (type == immediate)
@@ -358,7 +365,7 @@ int createOperand(Line line, Operand* operand, int checkForGarbage)
 		{
 			if (checkLineForGarbageChars(&line.str[strlen(operand->data.label)])) /*check for garbage chars after the label*/
 			{
-				writeErrorOrWarningToLog(1, line.lineNum, "there are garbage chars after the command");
+				writeErrorOrWarningToLog(1, line.lineNum, "there are garbage chars after the label");
 				return FALSE;
 			}
 		}
@@ -372,15 +379,21 @@ int createOperand(Line line, Operand* operand, int checkForGarbage)
 		char* temp_line = tmp;
 		if (!tryGetLabel(line, operand->data.label))
 		{
-			writeErrorOrWarningToLog(1, line.lineNum, "not valid label for operand");
+			writeErrorOrWarningToLog(1, line.lineNum, "not a valid label for operand");
 			return FALSE;
 		}
 		strcpy(temp_line, line.str);
 		temp_line += strlen(operand->data.label);
+		if(temp_line[0] != JUMP_START) {
+            writeErrorOrWarningToLog(1, line.lineNum, "wrong format of jump - no '(' right after the jump operand");
+            return FALSE;
+		}
 		temp_line += 1; /*for '(' char*/
-		/*first operand*/
+
+		/*first parameter*/
+
 		if (!isLineStartsWithRegister(temp_line) && !(temp_line[0] == IMMEDIATE_CHAR && isLineStartsWithANumber(temp_line+1,&num)) &&
-			!(isLabelFlag = tryGetLabelCharEdition(temp_line,label))) /*check first operand - is num/register/label*/
+			!(isLabelFlag = tryGetLabelForJumpParameters(temp_line,label))) /*check first parameter - is num/register/label*/
 		{
 			if (isspace(temp_line[0])) { /* space between parameters */
 				writeErrorOrWarningToLog(1, line.lineNum, "space disallowed between '(' & first parameter");
@@ -391,7 +404,7 @@ int createOperand(Line line, Operand* operand, int checkForGarbage)
 				return FALSE;
 			}
 		}
-		if (isLineStartsWithRegister(temp_line) && !isalnum(temp_line[REGISTER_LEN])) /*first operand is register*/
+		if (isLineStartsWithRegister(temp_line)) /*first parameter is register*/
 		{
 			operand->data.jump_data.register1 = temp_line[1] - '0';
 			operand->data.jump_data.op1Type = isRegister;
@@ -399,6 +412,11 @@ int createOperand(Line line, Operand* operand, int checkForGarbage)
 		}
 		else if (isLabelFlag) /*first operand is label*/
 		{
+			if(checkLabelForSavedWords(label)) /*check if the first parameter is not a saved word*/
+			{
+				writeErrorOrWarningToLog(1,line.lineNum, "Cannot use saved words (operations) for jump parameter");
+				return FALSE;
+			}
 			strcpy(operand->data.jump_data.op1Label, label);
 			operand->data.jump_data.op1Type = isLabel;
 			temp_line += strlen(operand->data.jump_data.op1Label);
@@ -416,13 +434,15 @@ int createOperand(Line line, Operand* operand, int checkForGarbage)
 		}
 		if(temp_line[0] != OPERAND_DELIM) /*check if ',' after op1*/
 		{
-			writeErrorOrWarningToLog(1, line.lineNum, "wrong format of jump - no ',' after first parameter");
+			writeErrorOrWarningToLog(1, line.lineNum, "wrong format of jump - no ',' after first jump parameter");
 			return FALSE;
 		}
 		temp_line++; /*for ',' char*/
+
 		/*second operand*/
+
 		if (!isLineStartsWithRegister(temp_line) && !(temp_line[0] == IMMEDIATE_CHAR && isLineStartsWithANumber(temp_line+1,&num))
-			&& !(isLabelFlag =tryGetLabelCharEdition(temp_line,label)))/*check second operand - is num/register/label*/
+			&& !(isLabelFlag = tryGetLabelForJumpParameters(temp_line,label)))/*check second operand - is num/register/label*/
 		{
 		    if (isspace(temp_line[0])) { /* space between parameters */
                 writeErrorOrWarningToLog(1, line.lineNum, "space disallowed between jump operators");
@@ -433,7 +453,7 @@ int createOperand(Line line, Operand* operand, int checkForGarbage)
                 return FALSE;
 		    }
 		}
-		if (isLineStartsWithRegister(temp_line) && !isalnum(temp_line[REGISTER_LEN])) /*second operand is register*/
+		if (isLineStartsWithRegister(temp_line)) /*second operand is register*/
 		{
 			operand->data.jump_data.register2 = temp_line[1] - '0';
 			operand->data.jump_data.op2Type = isRegister;
@@ -441,6 +461,11 @@ int createOperand(Line line, Operand* operand, int checkForGarbage)
 		}
 		else if (isLabelFlag) /*second operand is label*/
 		{
+			if(checkLabelForSavedWords(label)) /*check if the first parameter is not a saved word*/
+			{
+				writeErrorOrWarningToLog(1,line.lineNum, "Cannot use saved words (operations) for jump parameter");
+				return FALSE;
+			}
 			strcpy(operand->data.jump_data.op2Label, label);
 			operand->data.jump_data.op2Type = isLabel;
 			temp_line += strlen(operand->data.jump_data.op2Label);
@@ -458,7 +483,7 @@ int createOperand(Line line, Operand* operand, int checkForGarbage)
 		}
 		if(temp_line[0]!= JUMP_END) /*check if ')' after op2*/
 		{
-			writeErrorOrWarningToLog(1, line.lineNum, "wrong format of jump - no ')' right after the second parameter");
+			writeErrorOrWarningToLog(1, line.lineNum, "wrong format of jump - no ')' right after the second jump parameter");
 			return FALSE;
 		}
 		temp_line++; /* for ')' */
