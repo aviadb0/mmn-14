@@ -36,34 +36,14 @@ int isLineStartsWithOp(char* line, int* operationIndex);
 int getIsLineStartsWithOpCondition(char *line, int i);
 
 /*
-	check if the line strats with a matrix
-*/
-int isMatrixStart(char *line, int* num);
-
-/*
 	check if the line end with backslash t
 */
 int checkLineEndBackslashT(char *line);
 
 /*
-	check if the line starts with matrix dimension
-*/
-int isLineStartWithMatrixDim(char* line, int* num);
-
-/*
 	check if the source and the destination are regist
 */
 int isOpSourceAndDestAreRegist(Op *op);
-
-/*
-	check if the destination is matrix
-*/
-int isOpDestIsMatrix(Op *op);
-
-/*
-	check if the source is matrix
-*/
-int isOpSourceIsMatrix(Op *op);
 
 /*
 	returning the address and name

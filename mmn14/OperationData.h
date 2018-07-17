@@ -4,8 +4,7 @@
 #include "constants.h"
 
 /*
-	Addressing struct gives as the relative command op (if its matrix\memory etc..)
-*/
+	Addressing struct gives as the relative command op 
 typedef enum Addressing {
 	none = 0,
 	immediate = 1 << 0,
