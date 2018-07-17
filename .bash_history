@@ -508,3 +508,10 @@ make
 ./assembler 2
 make
 ./assembler 2
+make
+./assembler 1
+make
+./assembler 1
+make
+./assembler 2
+./assembler 1

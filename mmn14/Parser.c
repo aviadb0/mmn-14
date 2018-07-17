@@ -37,17 +37,22 @@ int processExtern(Line line, FileContext* FileContext)
 	char externLabel[MAXIMUM_LABEL_LENGTH + 1];
 
 	line.str += strlen(EXTERN_SYMBOL_START);
-	line.str = trimString(line.str);
+	line.str = trimString(line.str); /* skip blanks */
 
-	if (!tryGetLabel(line, externLabel)) {
+	if (!tryGetLabel(line, externLabel)) { /* try to get the label*/
 		writeErrorOrWarningToLog(1, line.lineNum, "invalid label in extern");
 		return FALSE;
 	}
-	if (isLabelOrExternExistInFileContext(externLabel, FileContext)) {
+	if (isLabelOrExternExistInFileContext(externLabel, FileContext)) { /* check if the label already exist*/
 		writeErrorOrWarningToLog(1, line.lineNum, "extern label '%s' already exists", externLabel);
 		return FALSE;
 	}
-
+	line.str += strlen(externLabel); /* go to after the label */
+	if(checkLineForGarbageChars(line.str)) /* check for garbage */
+	{
+		writeErrorOrWarningToLog(1, line.lineNum, "there are garbage chars after the extern label");
+		return FALSE;
+	}
 	addExtern(FileContext, externLabel);
 	return TRUE;
 }
@@ -61,28 +66,27 @@ int parseAsmLine(Line line, FileContext* FileContext)
 	int operationIndex, doesLabelExistInLine = FALSE, doesErrorAccourd = FALSE;
 	char label[MAXIMUM_LABEL_LENGTH + 1];
 
-	if (isEmptyLine(line.str) || isCommentLine(line.str)) {
+	if (isEmptyLine(line.str) || isCommentLine(line.str)) { /* check for empty line or comment */
 		return TRUE;
 	}
-	if (isLineStartWithLabel(line, label, &doesErrorAccourd)) {
+	if (isLineStartWithLabel(line, label, &doesErrorAccourd)) { /* check for label in the head of the line */
 		doesLabelExistInLine = TRUE;
 		line.str += strlen(label) + 1;
 	}
-	if (doesErrorAccourd) {
+	if (doesErrorAccourd) { /* error occured, return false */
 		return FALSE;
 	}
 
-	line.str = trimString(line.str);
-
-	if (startsWithAString(line.str)) {
+	line.str = trimString(line.str); /* skip blanks */
+	if (startsWithAString(line.str)) { /* line is start with ".string" */
 		return parseLineStringStrater(doesLabelExistInLine, FileContext, label, line);
-	} else if (startsWithAData(line.str)) {
+	} else if (startsWithAData(line.str)) { /* line is start with ".data" */
 		return parseLineDataStrater(doesLabelExistInLine, FileContext, label, line);
-	} else if (isLineStartsWithEntry(line.str)) {
+	} else if (isLineStartsWithEntry(line.str)) { /* line is start with ".entry" */
 		return processFileContextEntry(line, FileContext);
-	} else if (startsWithAExtern(line.str)) {
+	} else if (startsWithAExtern(line.str)) { /* line is start with ".extern" */
 		return processExtern(line, FileContext);
-	} else if (isLineStartsWithOp(line.str, &operationIndex)) {
+	} else if (isLineStartsWithOp(line.str, &operationIndex)) { /* line is start with operation */
 		Op generated;
 		if (!createOperation(line, FileContext, operationIndex, &generated) ||
 			(doesLabelExistInLine && !addLabelToFileContext(FileContext, label, code, line.lineNum))) {
@@ -113,21 +117,26 @@ int processString(Line line, FileContext* FileContext)
 	char *stringFinal, *string;
 	int stringLength;
 
-	line.str = strchr(line.str, BACKSLASH);
+	line.str = strchr(line.str, BACKSLASH); /* find the start of string */
 	if (line.str == NULL) {
 		writeErrorOrWarningToLog(1, line.lineNum, "improper string formatting");
 		return FALSE;
 	}
 	line.str++;
-	stringFinal = strchr(line.str, BACKSLASH);
-	if (stringFinal == NULL)
+	stringFinal = strchr(line.str, BACKSLASH);/* find the end of string */
+	if (stringFinal == NULL) /* no " at the end of string*/
 	{
 		writeErrorOrWarningToLog(1, line.lineNum, "string not terminated with %c", BACKSLASH);
 		return FALSE;
 	}
-	if (stringFinal == line.str)
+	if (stringFinal == line.str) /* empty string */
 	{
 		writeErrorOrWarningToLog(1,line.lineNum, "empty string");
+		return FALSE;
+	}
+	if (checkLineForGarbageChars(&stringFinal[1])) /* check for garbage chars */
+	{
+		writeErrorOrWarningToLog(1, line.lineNum, "there are garbage chars after the string");
 		return FALSE;
 	}
 	stringLength = stringFinal - line.str;
@@ -171,16 +180,17 @@ int parseLineStringStrater(int doesLabelExistInLine, FileContext *FileContext, c
 int processLineData(Line line, FileContext* FileContext)
 {
 	int num;
+	char *lastSep;
 	line.str += strlen(DATA_SYMBOL_START);
 	do
 	{
 		line.str++; /* skipping space in first number, ',' in next */
-		if (!isLineStartsWithANumber(line.str, &num))
+		if (!isLineStartsWithANumber(line.str, &num)) /* check if not number */
 		{
 			writeErrorOrWarningToLog(1,line.lineNum, "invalid number");
 			return FALSE;
 		}
-		if (num > MAXIMUM_DATA_LENGTH || num < MAXIMUM_DATA_NUMBER)
+		if (num > MAXIMUM_DATA_LENGTH || num < MAXIMUM_DATA_NUMBER) /* check if in range */
 		{
 			writeErrorOrWarningToLog(1, line.lineNum, "number %d not in range %d to %d", num, MAXIMUM_DATA_NUMBER, MAXIMUM_DATA_LENGTH);
 			return FALSE;
@@ -190,7 +200,16 @@ int processLineData(Line line, FileContext* FileContext)
 			FileContext->data_table = realloc(FileContext->data_table, sizeof(*(FileContext->data_table)) * FileContext->data_capacity);
 		}
 		FileContext->data_table[FileContext->data_count++] = num;
+		lastSep = line.str;
 	} while ((line.str = strchr(line.str, DATA_SYMBOL_START_SEPERATOR)));
+	lastSep = skipNum(lastSep); /* skip last num */
+	if (checkLineForGarbageChars(lastSep)) /* check for garbage */
+	{
+		{
+			writeErrorOrWarningToLog(1, line.lineNum, "There are some garbage chars after data");
+			return FALSE;
+		}
+	}
 	return TRUE;
 }
 
@@ -262,17 +281,22 @@ int processFileContextEntry(Line line, FileContext* FileContext)
 {
 	char entryLbl[MAXIMUM_LABEL_LENGTH + 1];
 	line.str += strlen(ENTRY_SYMBOL_START);
-	line.str = trimString(line.str);
+	line.str = trimString(line.str); /* skip spaces */
 
-	if (!tryGetLabel(line, entryLbl)) {
+	if (!tryGetLabel(line, entryLbl)) { /* try get the label */
 		writeErrorOrWarningToLog(1, line.lineNum, "invalid label in entry");
 		return FALSE;
 	}
-	if (isEntryExistInFileContext(entryLbl, FileContext)) {
+	if (isEntryExistInFileContext(entryLbl, FileContext)) { /* check if entry already exist */
 		writeErrorOrWarningToLog(1, line.lineNum, "entry label '%s' already exists", entryLbl);
 		return FALSE;
 	}
-
+	line.str += strlen(entryLbl); /* go to after the label */
+	if(checkLineForGarbageChars(line.str)) /* check for garbage */
+	{
+		writeErrorOrWarningToLog(1, line.lineNum, "there are garbage chars after the entry label");
+		return FALSE;
+	}
 	addEntry(FileContext, entryLbl);
 	return TRUE;
 }
@@ -386,7 +410,11 @@ int createOperand(Line line, Operand* operand, int checkForGarbage)
 		char tmp[MAXIMUM_OPERATION_LENGTH + 1];
 		char label[MAXIMUM_LABEL_LENGTH + 1];
 		char* temp_line = tmp;
-		tryGetLabel(line, operand->data.label);
+		if (!tryGetLabel(line, operand->data.label))
+		{
+			writeErrorOrWarningToLog(1, line.lineNum, "not valid label for operand");
+			return FALSE;
+		}
 		strcpy(temp_line, line.str);
 		temp_line += strlen(operand->data.label);
 		temp_line += 1; /*for '(' char*/
@@ -394,8 +422,14 @@ int createOperand(Line line, Operand* operand, int checkForGarbage)
 		if (!isLineStartsWithRegister(temp_line) && !(temp_line[0] == IMMEDIATE_CHAR && isLineStartsWithANumber(temp_line+1,&num)) &&
 			!(isLabelFlag = tryGetLabelCharEdition(temp_line,label))) /*check first operand - is num/register/label*/
 		{
-			writeErrorOrWarningToLog(1, line.lineNum, "invalid operand");
-			return FALSE;
+			if (isspace(temp_line[0])) { /* space between parameters */
+				writeErrorOrWarningToLog(1, line.lineNum, "space disallowed between '(' & first parameter");
+				return FALSE;
+			}
+			else {
+				writeErrorOrWarningToLog(1, line.lineNum, "invalid operand");
+				return FALSE;
+			}
 		}
 		if (isLineStartsWithRegister(temp_line) && !isalnum(temp_line[REGISTER_LEN])) /*first operand is register*/
 		{
@@ -432,6 +466,7 @@ int createOperand(Line line, Operand* operand, int checkForGarbage)
 		{
 		    if (isspace(temp_line[0])) { /* space between parameters */
                 writeErrorOrWarningToLog(1, line.lineNum, "space disallowed between jump operators");
+                return FALSE;
 		    }
 		    else {
                 writeErrorOrWarningToLog(1, line.lineNum, "invalid operand");

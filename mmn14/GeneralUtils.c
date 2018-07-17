@@ -154,11 +154,11 @@ int tryGetLabel(Line line, char label[MAXIMUM_LABEL_LENGTH + 1])
 	char* origLine = line.str;
 	int label_len = 0;
 
-	if (!isalpha(*line.str)) {
+	if (!isalpha(*line.str)) { /*first char should be a letter */
 		return FALSE;
 	}
 
-	while (*line.str && isalnum(*line.str)) {
+	while (*line.str && isalnum(*line.str)) { /* include all the letters and nums */
 		label_len++;
 		line.str++;
 	}
