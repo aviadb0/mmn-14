@@ -126,7 +126,7 @@ void generateWordWithOperandAddressing(int* words, FileContext* FileContext, Ope
 }
 
 /*
-	this method generates a word from an operand and a filecontext only not matrix related
+	this method generates a word from an operand and a filecontext only not jump related
 */
 void generateWordWithOperandAddressingForNotJump(int* words, FileContext* FileContext, Operand* operand, OperandType type, int* wordsIndex) {
 	words[*wordsIndex] = generateWordForNonJumpOp(operand, FileContext, type);
@@ -152,7 +152,7 @@ int generateWordForNonJumpOp(Operand* operand, FileContext* FileContext, Operand
 }
 
 /*
-	this method generates a word from an operand and a filecontext only matrix related
+	this method generates a word from an operand and a filecontext only jump related
 */
 void generateWordWithOperandAddressingForJump(int* words, FileContext* FileContext, Operand* operand, OperandType type, int* wordsIndex) {
 	int word;
