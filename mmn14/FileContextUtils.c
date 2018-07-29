@@ -54,6 +54,35 @@ int isLabelOrExternExistInFileContext(char label[MAXIMUM_LABEL_LENGTH + 1], File
 }
 
 /*
+	check if label exists in FileContext
+*/
+int isLabelExistInFileContext(char label[MAXIMUM_LABEL_LENGTH + 1], FileContext * FileContext)
+{
+	int i;
+	for (i = 0; i < FileContext->symbolData->symbolCount; ) {
+		if (!strcmp(label, FileContext->symbolData->symbolsTable[i++].name)) {
+			return TRUE;
+		}
+	}
+
+	return FALSE;
+}
+/*
+	check if only exists in FileContext
+*/
+int isExternExistsInFileContext(char label[MAXIMUM_LABEL_LENGTH + 1], FileContext * FileContext)
+{
+	int i;
+	for (i = 0; i < FileContext->externData->externCount; ) {
+		if (!strcmp(label, FileContext->externData->externTable[i++].label)) {
+			return TRUE;
+		}
+	}
+
+	return FALSE;
+}
+
+/*
 	Add symbol to the file context
 */
 void addSymbol(FileContext* FileContext, char label[MAXIMUM_LABEL_LENGTH + 1], SymbolType type)
@@ -71,17 +100,6 @@ void addSymbol(FileContext* FileContext, char label[MAXIMUM_LABEL_LENGTH + 1], S
 	addSymbolTable(FileContext, symbol);
 }
 
-/*
-	this method add an Extern to the Extern Table
-*/
-void addExternTable(FileContext *fileContext, Extern Extern) {
-	if (fileContext->externData->externCount == fileContext->externData->externCapacity) {
-		fileContext->externData->externCapacity = fileContext->externData->externCapacity * 2;
-			fileContext->externData->externTable = realloc(fileContext->externData->externTable, sizeof(*(fileContext->externData->externTable)) * fileContext->externData->externCapacity);
-	}
-
-	fileContext->externData->externTable[fileContext->externData->externCount++] = Extern;
-}
 
 /*
 	Add extern to the file context
@@ -101,31 +119,18 @@ void addExtern(FileContext* FileContext, char label[MAXIMUM_LABEL_LENGTH + 1])
 }
 
 /*
-	check if label exists in FileContext
+	this method add an Extern to the Extern Table
 */
-int isLabelExistInFileContext(char label[MAXIMUM_LABEL_LENGTH + 1], FileContext * FileContext)
-{
-	int i;
-	for (i = 0; i < FileContext->symbolData->symbolCount; ) {
-		if (!strcmp(label, FileContext->symbolData->symbolsTable[i++].name)) {
-			return TRUE;
-		}
+void addExternTable(FileContext *fileContext, Extern Extern) {
+	if (fileContext->externData->externCount == fileContext->externData->externCapacity) {
+		fileContext->externData->externCapacity = fileContext->externData->externCapacity * 2;
+		fileContext->externData->externTable = realloc(fileContext->externData->externTable, sizeof(*(fileContext->externData->externTable)) * fileContext->externData->externCapacity);
 	}
 
-	return FALSE;
+	fileContext->externData->externTable[fileContext->externData->externCount++] = Extern;
 }
 
-/*
-	this method add an Entry to the Entry Table
-*/
-void addEntryTable(FileContext *fileContext, Entry entry) {
-	if (fileContext->entryData->entryCounter == fileContext->entryData->entryCapacity) {
-		fileContext->entryData->entryCapacity = fileContext->entryData->entryCapacity * 2;
-		fileContext->entryData->entryTable = realloc(fileContext->entryData->entryTable, sizeof(*(fileContext->entryData->entryTable)) * fileContext->entryData->entryCapacity);
-	}
 
-	fileContext->entryData->entryTable[fileContext->entryData->entryCounter++] = entry;
-}
 
 /*
 	Add entry to the file context
@@ -139,18 +144,16 @@ void addEntry(FileContext * FileContext, char label[MAXIMUM_LABEL_LENGTH + 1])
 }
 
 /*
-	check if only exists in FileContext
+	this method add an Entry to the Entry Table
 */
-int isExternExistsInFileContext(char label[MAXIMUM_LABEL_LENGTH + 1], FileContext * FileContext)
-{
-	int i;
-	for (i = 0; i < FileContext->externData->externCount; ) {
-		if (!strcmp(label, FileContext->externData->externTable[i++].label)) {
-			return TRUE;
-		}
-	}
+void addEntryTable(FileContext *fileContext, Entry entry) {
+    if (fileContext->entryData->entryCounter == fileContext->entryData->entryCapacity) {
+        fileContext->entryData->entryCapacity = fileContext->entryData->entryCapacity * 2;
+        fileContext->entryData->entryTable = realloc(fileContext->entryData->entryTable, sizeof(*(fileContext->entryData->entryTable)) * fileContext->entryData->entryCapacity);
+    }
 
-	return FALSE;
+    fileContext->entryData->entryTable[fileContext->entryData->entryCounter++] = entry;
 }
+
 
 

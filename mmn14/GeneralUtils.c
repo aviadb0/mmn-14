@@ -12,19 +12,6 @@
 #include "Parser.h"
 #include "OperationData.h"
 
-/*
-	is line start with condition
-*/
-int getIsLineStartsWithOpCondition(char *line, int i) {
-	return i < MAX_OP_LEN && !(line[i] == ' ' || line[i] == BACKSLASH_T);
-}
-
-/*
-	check if the source and the destination are regist
-*/
-int isOpSourceAndDestAreRegist(Op *op) {
-	return op->operands == 2 && op->src.type == regist && op->dst.type == regist;
-}
 
 /*
 	creating operation - return false if failed
@@ -75,15 +62,25 @@ int createOperation(Line line, FileContext* FileContext, int operationIndex, Op*
 }
 
 /*
-	init the op struct
+	calculating the binary operation size
 */
-void initOp(char *line, char* op) {
-	int i;
-	for (i = 0; getIsLineStartsWithOpCondition(line, i); i++) {
-		op[i] = line[i];
+int calcOperationBinarySize(Op* op)
+{
+	int extra_size = 0;
+	if (isOpSourceAndDestAreRegist(op)) { /* check if 2 registers - 2 binary words*/
+		return BOTH_REGIST; /* return 2*/
 	}
-
-	op[i] = BACKSLACH_ZERO;
+	if (isOpDestIsJump(op)) {
+		if(op->dst.data.jump_data.op1Type == isRegister && op->dst.data.jump_data.op1Type)
+		{
+			extra_size++; /* both parameters are registers - 1 word */
+		}
+		else
+		{
+			extra_size+=JUMP_PARAMETERS;  /* else - 2 word for each parametr */
+		}
+	}
+	return 1 + op->operands + extra_size;
 }
 
 /*
@@ -159,6 +156,7 @@ int tryGetLabelForJumpParameters(char * line, char label[MAXIMUM_LABEL_LENGTH + 
 }
 
 
+
 /*
 	check if the dest is jump
 */
@@ -167,25 +165,10 @@ int isOpDestIsJump(Op *op) {
 }
 
 /*
-	calculating the binary operation size
+	check if the source and the destination are regist
 */
-int calcOperationBinarySize(Op* op)
-{
-	int extra_size = 0;
-	if (isOpSourceAndDestAreRegist(op)) { /* check if 2 registers - 2 binary words*/
-		return BOTH_REGIST; /* return 2*/
-	}
-	if (isOpDestIsJump(op)) {
-		if(op->dst.data.jump_data.op1Type == isRegister && op->dst.data.jump_data.op1Type)
-		{
-			extra_size++; /* both parameters are registers - 1 word */
-		}
-		else
-		{
-			extra_size+=JUMP_PARAMETERS;  /* else - 2 word for each parametr */
-		}
-	}
-	return 1 + op->operands + extra_size;
+int isOpSourceAndDestAreRegist(Op *op) {
+	return op->operands == 2 && op->src.type == regist && op->dst.type == regist;
 }
 
 /*
@@ -207,6 +190,25 @@ int isLineStartsWithOp(char* line, int* operationIndex)
 	}
 
 	return FALSE;
+}
+
+/*
+	init the op struct
+*/
+void initOp(char *line, char* op) {
+    int i;
+    for (i = 0; getIsLineStartsWithOpCondition(line, i); i++) {
+        op[i] = line[i];
+    }
+
+    op[i] = BACKSLACH_ZERO;
+}
+
+/*
+	is line start with condition
+*/
+int getIsLineStartsWithOpCondition(char *line, int i) {
+	return i < MAX_OP_LEN && !(line[i] == ' ' || line[i] == BACKSLASH_T);
 }
 
 /*

@@ -45,26 +45,7 @@ int handleMemoryOperandType(Operand *operand, FileContext *fileContext) {
 	return word;
 }
 
-/*
-	this method calculate a word based on an parameter anf filecontext when the parameter is represent memory
-*/
-int handleJumpMemoryParameterType(char *label, FileContext *fileContext) {
-	int word;
-	Symbol* symbol;
 
-	symbol = getSymbolFromFileContext(label, fileContext);
-	if (symbol != NULL)
-	{  /* label is exist in symbol list - return label location */
-		word = symbol->location;
-		word = (word << ARE_BIT_WIDTH) + ARE_RELOCATABLE;
-	}
-	else  /* label is external */
-	{
-		word = 0;
-		word = (word << ARE_BIT_WIDTH) + ARE_EXTERNAL;
-	}
-	return word;
-}
 
 
 /*
@@ -208,6 +189,26 @@ int generateWordForJumpParameter2(Operand *op, FileContext* FileContext)
 	}
 	return word;
 }
+/*
+	this method calculate a word based on an parameter anf filecontext when the parameter is represent memory
+*/
+int handleJumpMemoryParameterType(char *label, FileContext *fileContext) {
+	int word;
+	Symbol* symbol;
+
+	symbol = getSymbolFromFileContext(label, fileContext);
+	if (symbol != NULL)
+	{  /* label is exist in symbol list - return label location */
+		word = symbol->location;
+		word = (word << ARE_BIT_WIDTH) + ARE_RELOCATABLE;
+	}
+	else  /* label is external */
+	{
+		word = 0;
+		word = (word << ARE_BIT_WIDTH) + ARE_EXTERNAL;
+	}
+	return word;
+}
 
 /*
 	this method calculate a word based on an operand anf filecontext when the operand is represent Immediate
@@ -232,16 +233,6 @@ int handleRegistOperandType(Operand *operand, OperandType type) {
 	return word;
 }
 
-/*
-	This method calculate word based on the fact that we work on a null Symbol when jump operation
- - external label
-*/
-int calcWordForNullSymbolWhenJumpOp() {
-	int word = 0;
-	word = (word << ARE_BIT_WIDTH) + ARE_EXTERNAL; /* A,E,R */
-
-	return word;
-}
 
 /*
 	this method generates machine codes for words in the FileContext
@@ -276,16 +267,6 @@ void generateWordsInMemory(FileContext* FileContext, int* words)
 	}
 }
 
-/*
-	This method calculate word based on the fact that we work on a non null Symbol when jump operation
-*/
-int calcWordForNotNullSymbolWhenJumpOp(Symbol *symbol) {
-	int word;
-	word = symbol->location;
-	word = (word << ARE_BIT_WIDTH) + ARE_RELOCATABLE;
-
-	return word;
-}
 
 /*
 	this method generates jump operand word based on the operand and the filecontext
@@ -297,3 +278,24 @@ int generateJumpOperandWord(Operand* operand, FileContext* FileContext)
 	return symbol == NULL ? calcWordForNullSymbolWhenJumpOp() : calcWordForNotNullSymbolWhenJumpOp(symbol);
 }
 
+/*
+	This method calculate word based on the fact that we work on a null Symbol when jump operation
+ - external label
+*/
+int calcWordForNullSymbolWhenJumpOp() {
+	int word = 0;
+	word = (word << ARE_BIT_WIDTH) + ARE_EXTERNAL; /* A,E,R */
+
+	return word;
+}
+
+/*
+	This method calculate word based on the fact that we work on a non null Symbol when jump operation
+*/
+int calcWordForNotNullSymbolWhenJumpOp(Symbol *symbol) {
+	int word;
+	word = symbol->location;
+	word = (word << ARE_BIT_WIDTH) + ARE_RELOCATABLE;
+
+	return word;
+}

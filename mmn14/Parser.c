@@ -22,6 +22,52 @@ int parseLineDataStrater(int doesLabelExistInLine, FileContext *FileContext, cha
 }
 
 /*
+	this method process the line data and updates the FileContexts accordinly
+*/
+int processLineData(Line line, FileContext* FileContext)
+{
+	int num;
+	char *lastSep;
+	line.str += strlen(DATA_SYMBOL_START);
+	do
+	{
+		line.str++; /* skipping space in first number, ',' in next */
+		if (!isLineStartsWithANumber(line.str, &num)) /* check if not number */
+		{
+			writeErrorOrWarningToLog(1,line.lineNum, "invalid number");
+			return FALSE;
+		}
+		if (num > MAXIMUM_DATA_LENGTH || num < MAXIMUM_DATA_NUMBER) /* check if in range */
+		{
+			writeErrorOrWarningToLog(1, line.lineNum, "number %d not in range %d to %d", num, MAXIMUM_DATA_NUMBER, MAXIMUM_DATA_LENGTH);
+			return FALSE;
+		}
+		if (isDataCapacityEqualsToDataCount(FileContext)) {
+			FileContext->data_capacity *= 2;
+			FileContext->data_table = realloc(FileContext->data_table, sizeof(*(FileContext->data_table)) * FileContext->data_capacity);
+		}
+		FileContext->data_table[FileContext->data_count++] = num;
+		lastSep = line.str;
+	} while ((line.str = strchr(line.str, DATA_SYMBOL_START_SEPERATOR)));
+	lastSep = skipNum(lastSep); /* skip last num */
+	if (checkLineForGarbageChars(lastSep)) /* check for garbage */
+	{
+		{
+			writeErrorOrWarningToLog(1, line.lineNum, "There are some garbage chars after data");
+			return FALSE;
+		}
+	}
+	return TRUE;
+}
+
+/*
+	checks if the data capacity is equals to the data count and retruns a boolean accordinly
+*/
+int isDataCapacityEqualsToDataCount(FileContext *fileContext) {
+	return fileContext->data_count == fileContext->data_capacity;
+}
+
+/*
 	this method process the extern part line and updates the FileContext
 */
 int processExtern(Line line, FileContext* FileContext)
@@ -68,7 +114,7 @@ int parseAsmLine(Line line, FileContext* FileContext)
 	if (doesErrorAccourd) { /* error occured, return false */
 		return FALSE;
 	}
-
+	/* the funcs in conditions are in LineUtil.c */
 	line.str = trimString(line.str); /* skip blanks */
 	if (startsWithAString(line.str)) { /* line is start with ".string" */
 		return parseLineStringStrater(doesLabelExistInLine, FileContext, label, line);
@@ -94,12 +140,6 @@ int parseAsmLine(Line line, FileContext* FileContext)
 	return TRUE;
 }
 
-/*
-	checks if the data capacity is equals to the data count and retruns a boolean accordinly
-*/
-int isDataCapacityEqualsToDataCount(FileContext *fileContext) {
-	return fileContext->data_count == fileContext->data_capacity;
-}
 
 /*
 	this method process line string and return FALSE if its null or not good, it updates the FileContext table and returns TRUE
@@ -166,44 +206,6 @@ int parseLineStringStrater(int doesLabelExistInLine, FileContext *FileContext, c
 	return TRUE;
 }
 
-/*
-	this method process the line data and updates the FileContexts accordinly
-*/
-int processLineData(Line line, FileContext* FileContext)
-{
-	int num;
-	char *lastSep;
-	line.str += strlen(DATA_SYMBOL_START);
-	do
-	{
-		line.str++; /* skipping space in first number, ',' in next */
-		if (!isLineStartsWithANumber(line.str, &num)) /* check if not number */
-		{
-			writeErrorOrWarningToLog(1,line.lineNum, "invalid number");
-			return FALSE;
-		}
-		if (num > MAXIMUM_DATA_LENGTH || num < MAXIMUM_DATA_NUMBER) /* check if in range */
-		{
-			writeErrorOrWarningToLog(1, line.lineNum, "number %d not in range %d to %d", num, MAXIMUM_DATA_NUMBER, MAXIMUM_DATA_LENGTH);
-			return FALSE;
-		}
-		if (isDataCapacityEqualsToDataCount(FileContext)) {
-			FileContext->data_capacity *= 2;
-			FileContext->data_table = realloc(FileContext->data_table, sizeof(*(FileContext->data_table)) * FileContext->data_capacity);
-		}
-		FileContext->data_table[FileContext->data_count++] = num;
-		lastSep = line.str;
-	} while ((line.str = strchr(line.str, DATA_SYMBOL_START_SEPERATOR)));
-	lastSep = skipNum(lastSep); /* skip last num */
-	if (checkLineForGarbageChars(lastSep)) /* check for garbage */
-	{
-		{
-			writeErrorOrWarningToLog(1, line.lineNum, "There are some garbage chars after data");
-			return FALSE;
-		}
-	}
-	return TRUE;
-}
 
 /*
 	this method checks if the value is in range of data member length

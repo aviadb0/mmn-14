@@ -86,6 +86,7 @@ int thereIsReadableLine(char tempLine[MAX_LINE], FILE *file);
 */
 int isLineStartsWithANumber(char* line, int* num);
 
+
 int validateUsedLabelsDeclared(FileContext* FileContext);
 
 /*
