@@ -12,8 +12,5 @@ line #5 error: error in number of operands for the operation 'bne', was 2 but sh
 line #7 error: error in addressing immediate for destination operand in op 'mov'
 Path: Invalid3
 line #1 error: invalid command
-line #3 error: invalid matrix addressing syntax
-line #4 error: invalid addressing type
-line #6 error: invalid number in matrix
 selogic@selogic-ThinkCentre-E73:~/Desktop/mmn14$ 
 

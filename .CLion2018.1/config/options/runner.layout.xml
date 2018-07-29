@@ -57,8 +57,8 @@
         <option name="defaultIndex" value="1" />
         <option name="displayName" value="Debugger" />
         <option name="index" value="1" />
-        <option name="leftProportion" value="0.28200692" />
-        <option name="rightProportion" value="0.04152249" />
+        <option name="leftProportion" value="0.2777778" />
+        <option name="rightProportion" value="0.086021505" />
       </TabImpl>
       <General />
     </runner>
